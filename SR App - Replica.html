@@ -458,7 +458,7 @@ V.home=function(){
 function ocard(o,i){var ci=S.checked===i;
   return '<div class="oc'+(ci?' ci':'')+'"><div class="top2"><img class="ph" src="'+IMG[o.img]+'" alt=""><div class="inf"><div class="nmr"><b>'+esc(o.n)+'</b><div class="mt">'+
    '<div>'+I.clock+'<span class="ag">'+(ci?'':o.ago)+'</span></div>'+(ci?'<div>'+I.pin+'<span>0.0 m</span></div>':'<span class="dots">....</span>')+'<div>'+I.walk+'<span class="ds">'+(ci?'0.0 m':o.dist)+'</span></div></div></div>'+
-   '<div class="kv">Code: <b>'+o.code+'</b></div><div class="kv">Contact: <b>'+o.ct+'</b></div><div class="kv">Territory: <b>'+o.terr+'</b></div><div class="kv">Location: <span class="tl">'+esc(o.loc)+'</span></div><div class="kv">Ordered: <span class="rd">'+o.ord+'</span></div></div></div>'+
+   '<div class="kv">Code: <b>'+o.code+'</b></div><div class="kv">Contact: <b>'+o.ct+'</b></div><div class="kv">Route: <b>'+o.terr+'</b></div><div class="kv">Location: <span class="tl">'+esc(o.loc)+'</span></div><div class="kv">Ordered: <span class="rd">'+o.ord+'</span></div></div></div>'+
    '<hr><div class="acts"><button data-act="checkin" data-v="'+i+'">Order</button><button data-act="nyi">Survey</button><button data-act="go" data-v="history">History</button></div></div>';}
 V.outlets=function(){
   var q=S.q.toLowerCase(),l=OUT.map(function(o,i){return [o,i]}).filter(function(x){return !q||x[0].n.toLowerCase().indexOf(q)>-1});
