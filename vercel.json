@@ -1,6 +1,7 @@
 {
   "rewrites": [
     { "source": "/", "destination": "/SR App - Replica.html" },
-    { "source": "/distributor", "destination": "/Distributor App.html" }
+    { "source": "/distributor", "destination": "/Distributor App.html" },
+    { "source": "/promotion", "destination": "/Promotion.html" }
   ]
 }
