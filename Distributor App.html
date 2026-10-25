@@ -625,7 +625,7 @@ V.login=function(){
 };
 V.home=function(){
   var np=ORD.filter(function(o){return isOpen(o)}).length,nd=ORD.filter(function(o){return o.st==='delivered'&&inR(o.delAt,T0,T0)}).length;
-  var tiles=[['deliv','Delivered','delivered'],['acc','Accepted','accepted'],['ss','Sales<br>Summary','ss'],['dbs','Db Stock','dbs'],['help','Help','@help'],['kh','Knowledg<br>e Hub','kh'],['claim','Claim',null],['indent','Indent',null],['indrec','Indent<br>Received',null]];
+  var tiles=[['deliv','Delivered','delivered'],['acc','Accepted','accepted'],['ss','Sales<br>Summary','ss'],['dbs','Db Stock','dbs'],['help','Help','@help'],['claim','Claim',null],['indent','Indent',null],['indrec','Indent<br>Received',null]];
   return sb()+'<div class="view"><div class="ab"><button class="ibx" data-act="drawer" aria-label="Menu">'+I.menu+'</button><h2>Home</h2><button class="ibx" data-act="nyi" aria-label="Notifications">'+I.bell+'<span class="bdg">3</span></button></div>'+
    '<div class="scroll"><div class="home">'+
    '<div class="hc2 one"><button class="hcard t big" data-act="go" data-v="pending"><em>'+np+' orders</em><i><img src="'+IMG.i_pend+'" alt=""></i><b>Pending Deliveries</b><span>Deliver your pending orders from here.</span></button></div>'+
