@@ -620,6 +620,51 @@ input{font-family:inherit}
 .pnp .bd b{font-weight:500;color:#111;margin-right:6px}
 /* dashboard (561-wide screenshots, ~1:1) */
 .dshv{background:#fbf6fb}
+/* Dashboard KPI cards (Simplr SALES set) */
+.dshv{background:#f2f6f7}
+.dsw.kd{gap:14px;padding-top:16px}
+.kper{display:flex;gap:6px;background:#fff;border-radius:14px;padding:6px;box-shadow:0 1px 3px rgba(16,60,70,.08)}
+.kper button{flex:1;height:48px;border-radius:10px;font:500 17px Poppins,sans-serif;color:#4c6a70}
+.kper button.on{background:var(--t);color:#fff;box-shadow:0 2px 6px rgba(21,145,161,.35)}
+.kper .kcal{flex:0 0 58px;display:flex;align-items:center;justify-content:center;color:var(--t)}
+.kper .kcal.on{color:#fff}
+.krng{display:flex;align-items:center;gap:10px;background:#e3f2f4;color:#0f6f7b;border-radius:12px;padding:6px 6px 6px 14px;font:500 15.5px Poppins,sans-serif}
+.krng span{flex:1}
+.krng button{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#0f6f7b}
+.kgrid{display:grid;grid-template-columns:1fr 1fr;grid-auto-rows:1fr;gap:10px}
+.kc{position:relative;overflow:hidden;min-width:0;display:flex;flex-direction:column;gap:4px;background:var(--kb);border-radius:12px;padding:10px 12px 11px;box-shadow:0 1px 3px rgba(16,60,70,.08)}
+.kc.tl{--kb:#e3f5f9;--kf:#0e8ba0;--kv:#0a6676}
+.kc.gr{--kb:#e6f6e9;--kf:#2e9d48;--kv:#1d7333}
+.kc.or{--kb:#fff1dc;--kf:#e08a00;--kv:#a96400}
+.kc.pu{--kb:#eee9fb;--kf:#7150c9;--kv:#53379f}
+.kc .kwm{position:absolute;right:-10px;bottom:-12px;display:flex;color:var(--kf);opacity:.11;pointer-events:none;font-style:normal}
+.kc .kh{position:relative;display:flex;align-items:flex-start;gap:8px}
+.kc .kh i{flex:0 0 26px;height:26px;border-radius:8px;background:#fff;color:var(--kf);display:flex;align-items:center;justify-content:center;box-shadow:0 1px 2px rgba(0,0,0,.06);font-style:normal}
+.kc span{min-width:0;font:600 12px/1.2 Poppins,sans-serif;letter-spacing:.2px;text-transform:uppercase;color:var(--kf);padding-top:4px;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.kc b{position:relative;font:700 25px/1.2 Poppins,sans-serif;color:var(--kv);font-variant-numeric:tabular-nums}
+.kc.ok b{color:#1b9a5a}.kc.mid b{color:#d07a00}.kc.low b{color:#e5484d}
+.kpr{position:relative;display:flex;align-items:center;gap:8px;margin-top:auto}
+.kbar{flex:1;height:5px;border-radius:3px;background:rgba(255,255,255,.8);overflow:hidden}
+.kbar i{display:block;height:100%;border-radius:3px;background:var(--kf)}
+.kc small{flex:0 0 auto;font:400 11.5px Poppins,sans-serif;color:#5f7377;white-space:nowrap}
+.ksh{position:absolute;left:0;right:0;bottom:0;z-index:11;display:flex;flex-direction:column;max-height:80%;background:#fff;border-radius:24px 24px 0 0;padding:10px 22px 26px;box-shadow:0 -6px 24px rgba(0,0,0,.18)}
+.kgrab{display:block;width:48px;height:5px;border-radius:3px;background:#d5dcde;margin:0 auto 10px}
+.ksh-h{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.ksh-h b{font:600 21px Poppins,sans-serif;color:#16343a}
+.ksh-h button{width:38px;height:38px;border-radius:50%;background:#f1f4f5;color:#5a6b6e;display:flex;align-items:center;justify-content:center}
+.kcm{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+.kcm b{font:600 18px Poppins,sans-serif;color:#16343a}
+.kcm button{width:42px;height:42px;border-radius:50%;background:#eef6f7;color:var(--t);font:500 26px/1 Poppins,sans-serif}
+.kcm button:disabled{opacity:.35}
+.kwk,.kdg{display:grid;grid-template-columns:repeat(7,1fr);gap:4px 0;text-align:center}
+.kwk span{padding:4px 0;font:500 13px Poppins,sans-serif;color:#8a9a9d}
+.kdg button,.kdg span{height:48px;font:400 16px Poppins,sans-serif;color:#16343a}
+.kdg button:disabled{color:#c6cfd1}
+.kdg button.in{background:#e0f1f3}
+.kdg button.a,.kdg button.b{background:var(--t);color:#fff;font-weight:600;border-radius:12px}
+.kdg button.td:not(.a):not(.b){box-shadow:inset 0 0 0 1.5px var(--t);border-radius:12px}
+.ksel{margin:12px 0 0;text-align:center;font:500 15px Poppins,sans-serif;color:#5a6b6e}
+.ksh .rmb button:disabled{opacity:.45}
 .dsh{flex:0 0 auto;background:var(--t);color:#fff;border-radius:0 0 20px 20px;padding:4px 18px 14px 25px;margin-top:-1px;position:relative;z-index:3;box-shadow:0 3px 8px rgba(0,0,0,.18)}
 .dsh .tp{display:flex;justify-content:space-between;align-items:center;height:34px;padding:0 6px 0 12px}
 .dsh .tp button{color:#fff;display:flex;position:relative}
@@ -1030,7 +1075,6 @@ var RIC={cal:'<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor
  caret:'<svg width="12" height="12" viewBox="0 0 24 24"><path d="M5 8h14l-7 9z" fill="currentColor"/></svg>',
  print:'<svg width="34" height="34" viewBox="0 0 24 24" fill="currentColor"><path d="M19 8H5a3 3 0 00-3 3v6h4v4h12v-4h4v-6a3 3 0 00-3-3zm-3 11H8v-5h8v5zm3-7a1 1 0 110-2 1 1 0 010 2zm-1-9H6v4h12V3z"/></svg>',
  house:'<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>',
- ok:'<svg width="12" height="12" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="#4caf50"/><path d="M7 12.5l3.2 3.2L17 9" stroke="#fff" stroke-width="2.6" fill="none" stroke-linecap="round"/></svg>',
  no:'<svg width="12" height="12" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="#f44336"/><path d="M8 8l8 8M16 8l-8 8" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/></svg>',
  search:'<svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>',
  filt:'<svg width="18" height="18" viewBox="0 0 24 24"><path d="M4 7h16M7 12h10M10 17h4" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>',
@@ -1144,24 +1188,80 @@ var DIC={bell:'<svg width="26" height="26" viewBox="0 0 24 24" fill="none" strok
  wm:'<svg width="120" height="90" viewBox="0 0 24 18" fill="currentColor"><path d="M2 6l2-5h16l2 5v1a2.5 2.5 0 01-5 0 2.5 2.5 0 01-5 0 2.5 2.5 0 01-5 0 2.5 2.5 0 01-5 0zM3 9.5h18V18H3zM6 12v6h5v-6zm8 0v3h4v-3z"/></svg>'};
 var DMS=['January','February','March','April','May','June','July','August','September','October','November','December'];
 function bdt(n){return n.toLocaleString('en-IN',{minimumFractionDigits:2,maximumFractionDigits:2})}
-V.dash=function(){var t=new Date(),mo=S.dMon==null?0:S.dMon,md=new Date(t.getFullYear(),t.getMonth()+mo,1),del=S.dTab==='Delivery',rg=S.dRg||0;
-  var tg=del?250000:100000,ach=del?178500:318465,pct=Math.min(100,Math.round(ach/tg*100)),k=[1,3,9][rg]||1;
+/* ---------- Dashboard: the KPI cards of the Simplr SALES dashboard, per SR and per period ---------- */
+var KPER=[['today','Today'],['wtd','WTD'],['mtd','MTD'],['qtd','QTD']];
+var KMUL={today:1,wtd:4,mtd:21,qtd:63};
+/* the signed-in SR's figures (the SR App shows only their own dashboard): [target size, achievement, wholesale share, visits made of 47] */
+var KME=[1,1,0,47];          /* working days in the period, for the period-based cards */
+var KIC={cal:'<svg width="24" height="24" viewBox="0 -960 960 960" fill="currentColor" aria-hidden="true"><path d="M200-80q-33 0-56.5-23.5T120-160v-560q0-33 23.5-56.5T200-800h40v-80h80v80h320v-80h80v80h40q33 0 56.5 23.5T840-720v560q0 33-23.5 56.5T760-80H200Zm0-80h560v-400H200v400Zm0-480h560v-80H200v80Zm0 0v-80 80Zm280 240q-17 0-28.5-11.5T440-440q0-17 11.5-28.5T480-480q17 0 28.5 11.5T520-440q0 17-11.5 28.5T480-400Zm-160 0q-17 0-28.5-11.5T280-440q0-17 11.5-28.5T320-480q17 0 28.5 11.5T360-440q0 17-11.5 28.5T320-400Zm320 0q-17 0-28.5-11.5T600-440q0-17 11.5-28.5T640-480q17 0 28.5 11.5T680-440q0 17-11.5 28.5T640-400ZM480-240q-17 0-28.5-11.5T440-280q0-17 11.5-28.5T480-320q17 0 28.5 11.5T520-280q0 17-11.5 28.5T480-240Zm-160 0q-17 0-28.5-11.5T280-280q0-17 11.5-28.5T320-320q17 0 28.5 11.5T360-280q0 17-11.5 28.5T320-240Zm320 0q-17 0-28.5-11.5T600-280q0-17 11.5-28.5T640-320q17 0 28.5 11.5T680-280q0 17-11.5 28.5T640-240Z"/></svg>',
+ ok:'<svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+ x:'<svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>'};
+function kDays(){if(S.kPer!=='custom'||!S.kRange)return KMUL[S.kPer||'today'];return Math.round((S.kRange.b-S.kRange.a)/864e5)+1}
+function kFmtD(d){return d.getDate()+' '+DMS[d.getMonth()].slice(0,3)}
+/* the 20 cards: [label, value, kind, uses the period prefix, target value for a bar] */
+function kCards(){var f=KME,d=kDays(),P=S.kPer||'today';
+  var pre=P==='custom'?'':KPER.filter(function(x){return x[0]===P})[0][1]+' ';
+  var g=function(v){return Math.round(v*f[0]*f[1])},rr=Math.round(14319*f[0])*d,ord=g(16300)*d,ws=Math.round(ord*f[2]),pc=g(22)*d,mt=Math.round(378652*f[0]),mtd=g(192499);
+  return [[pre+'RR Target',rr,'n',1],[pre+'Order',ord,'n',1,rr],[pre+'Ach%',ord/rr*100,'p',1],[pre+'Retail',ord-ws,'n',1],[pre+'WS',ws,'n',1],[pre+'Productive Call',pc,'i',1],
+   ['CC Rope Tgt',Math.round(168*f[0]),'d',0],['CC Rope Achv',g(62),'d',0,Math.round(168*f[0])],['PC Achv',g(685),'i',0],[pre+'Retail PC Achv',pc-Math.round(pc*f[2]),'i',1],
+   ['2 LPC Achv',g(426),'i',0],[pre+'Retail 2LPC Achv',Math.max(1,g(7))*d,'i',1],['Visit OL',f[3]+'/47','v',0,47,f[3]],['Month Target',mt,'n',0],
+   ['CC Duo Tgt',Math.round(141*f[0]),'d',0],['CC Duo Achv',g(142),'d',0,Math.round(141*f[0])],['MTD Sales',mtd,'n',0,mt],['Achv%',mtd/mt*100,'p',0],
+   ['MTD Productive Call',g(318),'i',0],['Ord vs Del',Math.min(99.9,95.63+(f[1]-1)*6),'p2',0]];}
+function kVal(c){var v=c[1];if(c[2]==='p')return Math.round(v).toFixed(1)+'%';if(c[2]==='p2')return v.toFixed(2)+'%';if(c[2]==='d')return v.toFixed(1);if(c[2]==='v')return v;return Math.round(v).toLocaleString('en-US')}
+function kTone(c){if(c[2]!=='p'&&c[2]!=='p2')return '';var v=c[1];return v>=100?' ok':v>=80?' good':v>=50?' mid':' low'}
+/* card look: a filled icon per card (all different), and colours by position — the four colours repeat as
+   tl or / pu gr row after row, so a card never touches the same colour beside, above or below it */
+var KICO={adjust:'M12 2C6.49 2 2 6.49 2 12s4.49 10 10 10 10-4.49 10-10S17.51 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3-8c0 1.66-1.34 3-3 3s-3-1.34-3-3 1.34-3 3-3 3 1.34 3 3z',
+ receipt:'M18 17H6v-2h12v2zm0-4H6v-2h12v2zm0-4H6V7h12v2zM3 22l1.5-1.5L6 22l1.5-1.5L9 22l1.5-1.5L12 22l1.5-1.5L15 22l1.5-1.5L18 22l1.5-1.5L21 22V2l-1.5 1.5L18 2l-1.5 1.5L15 2l-1.5 1.5L12 2l-1.5 1.5L9 2 7.5 3.5 6 2 4.5 3.5 3 2v20z',
+ trend:'M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z',
+ store:'M20 4H4v2h16V4zm1 10v-2l-1-5H4l-1 5v2h1v6h10v-6h4v6h2v-6h1zm-9 4H6v-4h6v4z',
+ warehouse:'M22 21V7L12 3 2 7v14h5v-9h10v9h5zm-11-2H9v2h2v-2zm2-3h-2v2h2v-2zm2 3h-2v2h2v-2z',
+ phone:'M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z',
+ flag:'M14.4 6L14 4H5v17h2v-7h5.6l.4 2h7V6z',
+ trophy:'M19 5h-2V3H7v2H5c-1.1 0-2 .9-2 2v1c0 2.55 1.92 4.63 4.39 4.94.63 1.5 1.98 2.63 3.61 2.96V19H7v2h10v-2h-4v-3.1c1.63-.33 2.98-1.46 3.61-2.96C19.08 12.63 21 10.55 21 8V7c0-1.1-.9-2-2-2zM5 8V7h2v3.82C5.84 10.4 5 9.3 5 8zm14 0c0 1.3-.84 2.4-2 2.82V7h2v1z',
+ cartadd:'M11 9h2V6h3V4h-3V1h-2v3H8v2h3v3zm-4 9c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2zm-9.83-3.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.86-7.01L19.42 4h-.01l-1.1 2-2.76 5H8.53l-.13-.27L6.16 6l-.95-2-.94-2H1v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.13 0-.25-.11-.25-.25z',
+ bag:'M19 6h-2c0-2.76-2.24-5-5-5S7 3.24 7 6H5c-1.1 0-1.99.9-1.99 2L3 20c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-7-3c1.66 0 3 1.34 3 3H9c0-1.66 1.34-3 3-3zm0 10c-2.76 0-5-2.24-5-5h2c0 1.66 1.34 3 3 3s3-1.34 3-3h2c0 2.76-2.24 5-5 5z',
+ layers:'M11.99 18.54l-7.37-5.73L3 14.07l9 7 9-7-1.63-1.27-7.38 5.74zM12 16l7.36-5.73L21 9l-9-7-9 7 1.63 1.27L12 16z',
+ checklist:'M14 10H2v2h12v-2zm0-4H2v2h12V6zM2 16h8v-2H2v2zm19.5-4.5L23 13l-6.99 7-4.51-4.5L13 14l3.01 3 5.49-5.5z',
+ pin:'M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z',
+ event:'M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z',
+ crosshair:'M12 8c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm8.94 3A8.994 8.994 0 0013 3.06V1h-2v2.06A8.994 8.994 0 003.06 11H1v2h2.06A8.994 8.994 0 0011 20.94V23h2v-2.06A8.994 8.994 0 0020.94 13H23v-2h-2.06zM12 19c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z',
+ star:'M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm4.24 16L12 15.45 7.77 18l1.12-4.81-3.73-3.23 4.92-.42L12 5l1.92 4.53 4.92.42-3.73 3.23L16.23 18z',
+ bars:'M5 9.2h3V19H5zM10.6 5h2.8v14h-2.8zm5.6 8H19v6h-2.8z',
+ pie:'M11 2v20c-5.07-.5-9-4.79-9-10s3.93-9.5 9-10zm2.03 0v8.99H22c-.47-4.74-4.24-8.52-8.97-8.99zm0 11.01V22c4.74-.47 8.5-4.25 8.97-8.99h-8.97z',
+ talk:'M20 15.5c-1.25 0-2.45-.2-3.57-.57-.35-.11-.74-.03-1.02.24l-2.2 2.2c-2.83-1.44-5.15-3.75-6.59-6.59l2.2-2.21c.28-.26.36-.65.25-1L8.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1zM19 12h2c0-4.97-4.03-9-9-9v2c3.87 0 7 3.13 7 7zm-4 0h2c0-2.76-2.24-5-5-5v2c1.66 0 3 1.34 3 3z',
+ truck:'M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9l1.96 2.5H17V9.5h2.5zm-1.5 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z'};
+/* icon of each card, in card order */
+var KLOOK=['adjust','receipt','trend','store','warehouse','phone','flag','trophy','cartadd','bag','layers','checklist','pin','event','crosshair','star','bars','pie','talk','truck'];
+var KTONE=['tl','or','pu','gr'];
+function kIcon(k,sz){return '<svg width="'+sz+'" height="'+sz+'" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="'+KICO[k]+'"/></svg>'}
+function kCard(c,i){var bar='',ic=KLOOK[i]||'adjust',tone=KTONE[(Math.floor(i/2)%2)*2+i%2];
+  if(c[4]){var have=c[2]==='v'?c[5]:c[1],real=have/c[4]*100,pct=Math.max(0,Math.min(100,real));bar='<div class="kpr"><div class="kbar"><i style="width:'+pct.toFixed(0)+'%"></i></div><small>'+real.toFixed(0)+'% of '+(c[2]==='d'?c[4].toFixed(1):Math.round(c[4]).toLocaleString('en-US'))+'</small></div>'}
+  return '<div class="kc '+tone+kTone(c)+'"><i class="kwm">'+kIcon(ic,76)+'</i><div class="kh"><i>'+kIcon(ic,16)+'</i><span>'+c[0]+'</span></div><b>'+kVal(c)+'</b>'+bar+'</div>'}
+function kpiDash(){var P=S.kPer||'today';
+  var b='<div class="kper" role="tablist">'+KPER.map(function(x){return '<button role="tab" aria-selected="'+(P===x[0])+'" class="'+(P===x[0]?'on':'')+'" data-act="kper" data-v="'+x[0]+'">'+x[1]+'</button>'}).join('')+
+    '<button class="kcal'+(P==='custom'?' on':'')+'" data-act="kcal" aria-label="Pick a date range">'+KIC.cal+'</button></div>';
+  if(P==='custom'&&S.kRange)b+='<div class="krng">'+KIC.cal+'<span>'+kFmtD(S.kRange.a)+(+S.kRange.b!==+S.kRange.a?' – '+kFmtD(S.kRange.b):'')+' '+S.kRange.b.getFullYear()+' · '+kDays()+' day'+(kDays()>1?'s':'')+'</span><button data-act="kclear" aria-label="Clear date range">'+KIC.x+'</button></div>';
+  return b+'<div class="kgrid">'+kCards().map(kCard).join('')+'</div>'}
+function kpiPop(){
+  if(S.pop==='kcal'){var C=S.kCal,first=new Date(C.y,C.m,1),dim=new Date(C.y,C.m+1,0).getDate(),t=new Date(),today=new Date(t.getFullYear(),t.getMonth(),t.getDate()),cells='';
+    for(var k=0;k<first.getDay();k++)cells+='<span></span>';
+    for(var dd=1;dd<=dim;dd++){var dt=new Date(C.y,C.m,dd),fut=dt>today,cls=[];
+      if(C.a&&+dt===+C.a)cls.push('a');if(C.b&&+dt===+C.b)cls.push('b');if(C.a&&C.b&&dt>C.a&&dt<C.b)cls.push('in');if(+dt===+today)cls.push('td');
+      cells+='<button class="'+cls.join(' ')+'" data-act="kday" data-v="'+dd+'"'+(fut?' disabled':'')+'>'+dd+'</button>'}
+    var n=C.a?Math.round(((C.b||C.a)-C.a)/864e5)+1:0,nextOk=new Date(C.y,C.m+1,1)<=today;
+    return '<div class="ov" data-act="closepop"></div><div class="ksh" role="dialog" aria-label="Select date range"><i class="kgrab"></i><div class="ksh-h"><b>Select date range</b><button data-act="closepop" aria-label="Close">'+KIC.x+'</button></div>'+
+     '<div class="kcm"><button data-act="kmon" data-v="-1" aria-label="Previous month">‹</button><b>'+DMS[C.m]+' '+C.y+'</b><button data-act="kmon" data-v="1" aria-label="Next month"'+(nextOk?'':' disabled')+'>›</button></div>'+
+     '<div class="kwk">'+['Su','Mo','Tu','We','Th','Fr','Sa'].map(function(w){return '<span>'+w+'</span>'}).join('')+'</div><div class="kdg">'+cells+'</div>'+
+     '<p class="ksel">'+(C.a?kFmtD(C.a)+(C.b&&+C.b!==+C.a?' – '+kFmtD(C.b):'')+' · '+n+' day'+(n>1?'s':''):'Tap a start date, then an end date')+'</p>'+
+     '<div class="rmb"><button class="s" data-act="kcalclr">Clear</button><button class="p" data-act="kcalok"'+(C.a?'':' disabled')+'>Apply</button></div></div>'}
+  return ''}
+V.dash=function(){var t=new Date();
   var sync=S.dSync||t,sts=sync.getDate()+' '+DMS[sync.getMonth()]+' '+sync.getFullYear()+', '+(sync.getHours()%12||12)+':'+p2(sync.getMinutes())+' '+(sync.getHours()<12?'AM':'PM');
-  var C=2*Math.PI*44,ring='<svg class="dring" viewBox="0 0 100 100" preserveAspectRatio="none"><circle cx="50" cy="50" r="44" fill="none" stroke="#dfe8e6" stroke-width="6"/><circle cx="50" cy="50" r="44" fill="none" stroke="#4caf50" stroke-width="6" stroke-dasharray="'+(C*pct/100)+' '+C+'" transform="rotate(-90 50 50)"/></svg>';
   return sb(true,true)+'<div class="view dshv"><div class="dsh"><div class="tp"><button data-act="nyi" aria-label="Menu">'+DIC.menu+'</button><button class="bl" data-act="nyi" aria-label="Notifications">'+DIC.bell+'<span>15</span></button></div>'+
    '<div class="pr"><img src="'+IMG.avatar+'" alt=""><div class="nm"><b>MR. RATAN</b><span>Sales Representative</span><span>ratan@demo.com</span></div><div class="rt"><button class="do" data-act="daytile">'+(S.dayIn?'Day Out '+DIC.chk:'Day In')+'</button><button class="sy" data-act="dsync">Sync '+DIC.sync+'</button></div></div>'+
    '<div class="st">'+DIC.okc+'Dashboard synced at: '+sts+'</div></div>'+
-   '<div class="scroll"><div class="dsw"><div class="tva"><div class="tgl">'+['Order','Delivery'].map(function(o){return '<button class="'+((S.dTab||'Order')===o?'on':'')+'" data-act="dtab2" data-v="'+o+'">'+o+'</button>'}).join('')+'</div>'+
-   '<div class="mn"><button data-act="dmon" data-v="-1" aria-label="Previous month">‹</button><span>'+DMS[md.getMonth()].slice(0,3)+' '+md.getFullYear()+'</span><button data-act="dmon" data-v="1" aria-label="Next month">›</button></div>'+
-   '<div class="th"><b>Target vs. Achievements</b><button data-act="nyi" aria-label="Open">'+DIC.ext+'</button></div>'+
-   '<div class="tb"><div class="rg">'+ring+'<b>'+pct+'%</b></div><div class="nums"><div>Target: <b>'+bdt(tg)+'</b></div><div>Achieved: <b>'+bdt(ach)+'</b></div></div></div></div>'+
-   '<div class="rgs">'+['Today','WTD','MTD'].map(function(o,i){return '<button class="'+(rg===i?'on':'')+'" data-act="drg" data-v="'+i+'">'+o+'</button>'}).join('')+'<button data-act="nyi">'+DIC.cal+'Custom</button></div>'+
-   '<div class="tl2"><div class="ti bl"><i class="wmk">'+DIC.wm+'</i><div class="h">'+DIC.bld+'<b>Total Outlets</b><button data-act="nyi" aria-label="Open">'+DIC.ext+'</button></div><div class="big">'+(83)+'</div><hr><div class="r"><b>Scheduled:</b><small>'+(98*k)+'</small></div><div class="r"><b>Visited:</b><small>'+(4*k)+'</small></div><div class="r"><b>Scheduled vs Visited</b></div><div class="r cut"><span></span><small>4.08%</small></div></div>'+
-   '<div class="ti bl"><i class="wmk">'+DIC.memo.replace('width="22" height="22"','width="110" height="110"')+'</i><div class="h">'+DIC.memo+'<b>Total Memo</b><button data-act="nyi" aria-label="Open">'+DIC.ext+'</button></div><div class="big">'+(6*k)+'</div><hr><div class="r"><b>Total:</b><small>৳'+bdt(202713*k)+'</small></div><div class="r"><b>Avg:</b><small>৳'+bdt(33785.5)+'</small></div><div class="r"><b>LPC: '+DIC.eye+'</b><b>0.00</b></div></div>'+
-   '<div class="ti gr"><div class="h">'+DIC.clip+'<b>Collection</b><button data-act="nyi" aria-label="Open">'+DIC.ext+'</button></div><hr><div class="ct"><span>Total</span><b>৳0.00</b></div><div class="nd">No Data</div><div class="r pa"><b>Pending</b><b>Accepted</b></div></div>'+
-   '<div class="ti or"><i class="wmk">'+DIC.truck.replace('width="24" height="24"','width="120" height="120"')+'</i><div class="h">'+DIC.truck+'<b>Total Delivery</b><button data-act="nyi" aria-label="Open">'+DIC.ext+'</button></div><hr><div class="big">'+(4*k)+'</div><hr><div class="r"><b>Total:</b><small>৳'+bdt(178500*k)+'</small></div><div class="r"><b>Avg:</b><small>৳'+bdt(44625)+'</small></div><div class="r"><b>LPC: '+DIC.eye+'</b><b>0.00</b></div></div></div>'+
-   '<div class="prd"><svg class="wv" viewBox="0 0 536 160" preserveAspectRatio="none"><path d="M0 70 C80 30 160 110 250 60 S420 20 536 70" fill="none" stroke="#f3dfb7" stroke-width="3"/></svg><div><div class="h">'+DIC.clock+'<b>Schedule Prod.</b></div><hr><b class="v">5.10%</b></div><i></i><div><div class="h">'+DIC.bld+'<b>Visit Prod.</b></div><hr><b class="v">125.00%</b></div></div>'+
-   '</div></div>'+bnav('dash')+dayoutPop()+'</div>';
+   '<div class="scroll"><div class="dsw kd">'+kpiDash()+'</div></div>'+bnav('dash')+dayoutPop()+kpiPop()+'</div>';
 };
 /* ---------- My Target (copied from the user's screenshots) ---------- */
 /* MR. RATAN's monthly targets: [product index, target, ordered, delivered, category, brand] */
@@ -1285,9 +1385,13 @@ var A={
  tgbasis:function(){S.tgT.basis=S.tgT.basis==='ordered'?'created':'ordered';render(true)},
  tgview:function(e){S.tgT.view=e.dataset.v;S.tg.view=e.dataset.v;render(true)},
  tgapply:function(){var t=S.tgT;S.tg.by=t.by;S.tg.grp=t.grp;S.tg.basis=t.basis;S.tg.view=t.view;S.pop=null;render(true)},
- dtab2:function(e){S.dTab=e.dataset.v;render(true)},
- dmon:function(e){S.dMon=(S.dMon||0)+(+e.dataset.v);if(S.dMon>0)S.dMon=0;render(true)},
- drg:function(e){S.dRg=+e.dataset.v;render(true)},
+ kper:function(e){S.kPer=e.dataset.v;S.kRange=null;render(true)},
+ kcal:function(){var t=new Date(),r=S.kRange,base=r?r.a:t;S.kCal={y:base.getFullYear(),m:base.getMonth(),a:r?r.a:null,b:r?r.b:null};S.pop='kcal';render(true)},
+ kmon:function(e){var C=S.kCal,d=new Date(C.y,C.m+(+e.dataset.v),1);C.y=d.getFullYear();C.m=d.getMonth();render(true)},
+ kday:function(e){var C=S.kCal,d=new Date(C.y,C.m,+e.dataset.v);if(!C.a||C.b){C.a=d;C.b=null}else if(d<C.a){C.b=C.a;C.a=d}else C.b=d;render(true)},
+ kcalclr:function(){S.kCal.a=S.kCal.b=null;render(true)},
+ kcalok:function(){var C=S.kCal;if(!C.a)return;S.kRange={a:C.a,b:C.b||C.a};S.kPer='custom';S.pop=null;render(true)},
+ kclear:function(){S.kPer='today';S.kRange=null;render(true)},
  dsync:function(){S.dSync=new Date();render(true);toast('Synchronization successfully completed!')},
  pntab:function(e){S.pnTab=+e.dataset.v;render(true)},
  pnopen:function(e){S.pnId=+e.dataset.v;S.pnTl=false;go('pnd')},
