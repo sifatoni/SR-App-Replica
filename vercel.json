@@ -19,6 +19,10 @@
     {
       "source": "/manager",
       "destination": "/Manager App.html"
+    },
+    {
+      "source": "/dashboard-setup",
+      "destination": "/Dashboard Setup.html"
     }
   ]
 }
