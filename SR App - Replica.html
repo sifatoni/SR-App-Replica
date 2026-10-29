@@ -144,9 +144,37 @@ input{font-family:inherit}
 .srch input{flex:1;border:none;outline:none;font-size:24px;color:var(--ink);background:none}
 .srch input::placeholder{color:#9e9e9e}
 .srch svg{color:#9e9e9e}
+.route-picker{display:flex;align-items:center;gap:10px;margin:13px 25px 0 31px;min-width:0}
+.route-label{font-size:14px;font-weight:600;color:#666;flex-shrink:0}
+.route-tabs{display:flex;gap:8px;overflow-x:auto;min-width:0;flex:1;padding:3px 0 6px;scrollbar-width:thin}
+.route-tabs button{flex-shrink:0;white-space:nowrap;padding:8px 12px;border:1px solid #d6dedb;border-radius:18px;background:#fff;font-size:14px;color:#555}
+.route-tabs button.on{background:var(--t);border-color:var(--t);color:#fff;font-weight:600}
+.route-tabs button:focus-visible{outline:2px solid var(--t);outline-offset:2px}
+.route-picker+.otabs{margin-top:10px}
 .otabs{display:flex;height:38px;margin:20px 25px 0 31px;background:#fff;border-radius:4px}
 .otabs button{flex:1;font-size:18px;font-weight:500;color:var(--ink);border-radius:4px}
 .otabs button.on{background:var(--t);color:#fff}
+.ab.outlets-header{align-items:center}
+.ab.outlets-header h2{position:static;flex:1;min-width:0;text-align:left;margin-left:12px;line-height:44px}
+.upload-btn{display:flex;align-items:center;justify-content:center;gap:6px;min-width:62px;min-height:44px;margin-right:8px;padding:6px 9px;color:var(--t);border-radius:7px;font-size:16px;font-weight:600}
+.upload-btn:disabled{opacity:.65;cursor:wait}
+.upload-count{background:var(--t);color:#fff;border-radius:12px;min-width:22px;padding:2px 5px;text-align:center}
+.upload-btn[aria-busy="true"] svg{animation:upload-pulse .8s ease-in-out infinite alternate}
+@keyframes upload-pulse{to{opacity:.3;transform:translateY(-2px)}}
+@media(prefers-reduced-motion:reduce){.upload-btn[aria-busy="true"] svg{animation:none}}
+.upload-status{margin:9px 26px 0 31px;font-size:14px;color:#555;line-height:1.4}
+.upload-status:empty{display:none}
+.upload-status.error{color:#b3261e}
+.upload-status.success{color:#16704c}
+.cnts{margin-top:18px}
+.outlet-filters{margin:10px 26px 4px 31px;padding:14px;background:#fff;border:1px solid #ddd;border-radius:10px}
+.outlet-filters label{display:block;margin-bottom:10px;font-size:14px;font-weight:500}
+.outlet-filters select{display:block;width:100%;margin-top:5px;padding:9px 10px;border:1px solid #ccc;border-radius:6px;background:#fff;color:var(--ink);font:inherit}
+.outlet-filters select:focus{outline:2px solid var(--t);outline-offset:1px}
+.outlet-filter-footer{display:flex;align-items:center;justify-content:space-between;font-size:13px;color:#666}
+.outlet-filter-footer button{padding:7px;color:var(--t);font:inherit;font-weight:600}
+.outlet-filter-button.active{color:var(--t);background:#e3f3ef;border-radius:8px}
+.outlet-empty{padding:30px 16px;text-align:center;color:#666;font-size:17px}
 .cnts{display:flex;justify-content:space-between;margin:38px 26px 0 31px;font-size:23px;color:#424242}
 .olist{padding:20px 27px 80px 34px;display:flex;flex-direction:column;gap:17px}
 .oc{background:#fdfdfd;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,.14);padding:15px 18px 17px}
@@ -809,7 +837,7 @@ input{font-family:inherit}
 </head>
 <body>
 <div class="stage"><div class="phone"><div class="scr" id="scr"></div></div></div>
-<div class="demo"><b>ডেমো:</b> পরের Check-In-এর ফল <select id="cires"><option value="ok">সফল</option><option value="net">ইন্টারনেট নেই</option><option value="gps">GPS রেঞ্জের বাইরে</option></select></div>
+<div class="demo"><b>ডেমো:</b> পরের Check-In-এর ফল <select id="cires"><option value="ok">সফল</option><option value="net">ইন্টারনেট নেই</option><option value="gps">GPS রেঞ্জের বাইরে</option></select> <label>Upload network <select id="upnet"><option value="online">Online</option><option value="offline">No internet</option></select></label></div>
 <script>
 (function(){
 "use strict";
@@ -859,6 +887,8 @@ var OUT=[
  {n:'50m test',img:'o3',ago:'8 d',dist:'6.2 km',code:'O21787543088411',ct:'01700000001,',terr:'MIRPUR 12',loc:'Bosila road, Mohammadpur, Dhaka',ord:'8 days ago'},
  {n:'Mayer Doa Traders',img:'o2',ago:'15 d',dist:'1.4 km',code:'O21787543099120',ct:'01811223344,',terr:'MIRPUR 12',loc:'Section 12, Block C, Mirpur, Dhaka',ord:'15 days ago'},
  {n:'Hazi Mart',img:'o1',ago:'21 d',dist:'2.1 km',code:'O21787543100231',ct:'01912345678,',terr:'MIRPUR 12',loc:'Pallabi, Mirpur 12, Dhaka',ord:'21 days ago'}];
+/* Sample outlet attributes used by the My Outlets dropdown filters. */
+OUT.forEach(function(o,i){o.terr=['MIRPUR 12','MIRPUR 12','Dhaka uddan','MIRPUR 1','MIRPUR 12'][i];o.ch=['Wholesale','Retail','Retail','Wholesale','Retail'][i];o.cls=['Super Shop','Grocery','Tea Stall','Pharmacy','Super Shop'][i];o.locationType=['Urban','Urban','Rural','Semi-Urban','Urban'][i]});
 var HIST=[['Proshanti Body Wash','1','3.0','0.0','100.0 %'],['Proshanti Body Wash','1','18.0','3.0','83.33 %'],['Proshanti Body Wash','1','18.0','12.0','33.33 %'],['Proshanti cola','P1011','12.0','0.0','100.0 %']];
 var LAST3=[
  {d:'10 Aug 2026',id:'2C4S2883B2026081009',st:'Delivered',c:'g',items:[['Proshanti Body Wash',18,460],['Proshanti cola',12,60]]},
@@ -874,6 +904,30 @@ var PRODS=[
 
 var S;function fresh(){return {tg:tgFresh(),tgT:null,lb:{f:lbFresh(),t:null},attSel:null,ao:aoFresh(),v:'login',terr:{},pop:null,checked:-1,otab:0,htab:0,dtab:0,qty:{},showStk:{},q:''}}
 S=fresh();
+/* Local pending records for this standalone prototype. Uploads are simulated. */
+var UPKEY='sr-replica-pending-v1',pending=[],uploading=false,uploadMessage='',uploadTone='';
+try{var saved=JSON.parse(localStorage.getItem(UPKEY)||'[]');if(Array.isArray(saved))pending=saved}catch(e){}
+function savePending(){try{localStorage.setItem(UPKEY,JSON.stringify(pending))}catch(e){toast('Unable to save pending data on this device. Keep this page open.')}}
+function queueUpload(type,data){pending.push({id:Date.now().toString(36)+'-'+Math.random().toString(36).slice(2),type:type,data:data,createdAt:new Date().toISOString()});savePending();uploadMessage='';uploadTone=''}
+function uploadPanel(){return '<button class="upload-btn" data-act="upload" '+(uploading?'disabled ':'')+'aria-busy="'+uploading+'" aria-label="'+(uploading?'Uploading; ':'Upload ')+pending.length+' pending records" title="Demo upload · '+pending.length+' pending records"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 16V3m-5 5 5-5 5 5M4 16v5h16v-5"/></svg><span class="upload-count">'+pending.length+'</span></button>'}
+function uploadOffline(){return navigator.onLine===false||($('#upnet')&&$('#upnet').value==='offline')}
+async function uploadPending(){
+  if(uploading)return;
+  if(!pending.length){uploadMessage='All data is synced. No pending uploads.';uploadTone='success';render(true);return}
+  if(uploadOffline()){uploadMessage='Internet not reachable. Check your connection and tap Upload to retry. Pending data is saved.';uploadTone='error';render(true);toast('No internet. Pending uploads kept for retry.');return}
+  uploading=true;uploadTone='';var batch=pending.slice(),done=0;
+  try{
+    for(var i=0;i<batch.length;i++){
+      uploadMessage='Uploading '+(i+1)+' of '+batch.length+'…';render(true);
+      await new Promise(function(resolve){setTimeout(resolve,650)});
+      if(uploadOffline())throw new Error('Internet not reachable.');
+      /* Replace this demo acknowledgement with the system API before production. */
+      pending=pending.filter(function(record){return record.id!==batch[i].id});savePending();done++;
+    }
+    uploadMessage='Demo upload complete. '+done+' record'+(done===1?'':'s')+' uploaded.'+(pending.length?' '+pending.length+' new records pending.':' No pending uploads.');uploadTone='success';
+  }catch(e){uploadMessage='Internet not reachable. '+pending.length+' pending record'+(pending.length===1?'':'s')+' kept. Check your connection and retry.';uploadTone='error'}
+  finally{uploading=false;render(true);toast(uploadTone==='error'?'Upload interrupted. Pending data kept.':'Demo upload completed successfully.')}
+}
 
 /* ---------- chrome ---------- */
 function now(){var d=new Date();return d}
@@ -951,13 +1005,27 @@ function ocard(o,i){var ci=S.checked===i;
    '<div>'+I.clock+'<span class="ag">'+(ci?'':o.ago)+'</span></div>'+(ci?'<div>'+I.pin+'<span>0.0 m</span></div>':'<span class="dots">....</span>')+'<div>'+I.walk+'<span class="ds">'+(ci?'0.0 m':o.dist)+'</span></div></div></div>'+
    '<div class="kv">Code: <b>'+o.code+'</b></div><div class="kv">Contact: <b>'+o.ct+'</b></div><div class="kv">Route: <b>'+o.terr+'</b></div><div class="kv">Location: <span class="tl">'+esc(o.loc)+'</span></div><div class="kv">Ordered: <span class="rd">'+o.ord+'</span></div></div></div>'+
    '<hr><div class="acts"><button data-act="checkin" data-v="'+i+'">Order</button><button data-act="nyi">Survey</button><button data-act="go" data-v="history">History</button></div></div>';}
+function outletFilterValues(){return S.outletFilters||(S.outletFilters={ch:'',cls:'',locationType:''})}
+function matchesOutlet(o,q,f,route){return (!route||o.terr===route)&&(!q||o.n.toLowerCase().indexOf(q)>-1)&&['ch','cls','locationType'].every(function(k){return !f[k]||o[k]===f[k]})}
+function outletRouteTabs(){
+  var routes=OUT.reduce(function(list,o){if(o.terr&&list.indexOf(o.terr)<0)list.push(o.terr);return list},[]);
+  return '<div class="route-picker"><span class="route-label">Route</span><div class="route-tabs" role="group" aria-label="Filter outlets by route">'+[''].concat(routes).map(function(route){return '<button data-act="outletroute" data-v="'+esc(route)+'" class="'+((S.outletRoute||'')===route?'on':'')+'" aria-pressed="'+((S.outletRoute||'')===route)+'">'+esc(route||'All Routes')+'</button>'}).join('')+'</div></div>';
+}
+function outletFilterPanel(count){
+  if(!S.outletFiltersOpen)return '';
+  var f=outletFilterValues(),fields=[['ch','Channel',AOPT.ch],['cls','Outlet Type',AOPT.cls],['locationType','Location Type',AOPT.loc]];
+  return '<div class="outlet-filters" id="outlet-filters">'+fields.map(function(field){return '<label for="of-'+field[0]+'">'+field[1]+'<select id="of-'+field[0]+'" data-outlet-filter="'+field[0]+'"><option value="">All '+field[1]+'s</option>'+field[2].map(function(value){return '<option value="'+esc(value)+'"'+(f[field[0]]===value?' selected':'')+'>'+esc(value)+'</option>'}).join('')+'</select></label>'}).join('')+'<div class="outlet-filter-footer"><span>'+count+' matching outlets</span><button data-act="outletfilterclear">Clear filters</button></div></div>';
+}
 V.outlets=function(){
-  var q=S.q.toLowerCase(),l=OUT.map(function(o,i){return [o,i]}).filter(function(x){return !q||x[0].n.toLowerCase().indexOf(q)>-1});
-  var h=sb(true)+'<div class="view"><div class="ab"><button class="ibx" data-act="go" data-v="home" aria-label="Back">'+I.back+'</button><h2>My Outlets</h2><button class="ibx" data-act="nyi" aria-label="Filter">'+I.tune+'</button></div>'+
+  var q=S.q.toLowerCase(),filters=outletFilterValues(),active=Object.keys(filters).some(function(k){return !!filters[k]}),l=OUT.map(function(o,i){return [o,i]}).filter(function(x){return matchesOutlet(x[0],q,filters,S.outletRoute)});
+  var h=sb(true)+'<div class="view"><div class="ab outlets-header"><button class="ibx" data-act="go" data-v="home" aria-label="Back">'+I.back+'</button><h2>My Outlets</h2>'+uploadPanel()+'<button class="ibx outlet-filter-button'+(active?' active':'')+'" data-act="outletfiltertoggle" aria-label="Filter outlets'+(active?' (active)':'')+'" aria-expanded="'+!!S.outletFiltersOpen+'" aria-controls="outlet-filters">'+I.tune+'</button></div>'+
+   outletFilterPanel(l.length)+
    '<div class="srch"><input id="q" placeholder="Search" value="'+esc(S.q)+'" autocomplete="off">'+I.search.replace('width="22" height="22"','width="18" height="18"')+'</div>'+
-   '<div class="otabs">'+['All Outlets',"Today's Plan",'Sorted'].map(function(t,i){return '<button class="'+(S.otab===i?'on':'')+'" data-act="otab" data-v="'+i+'">'+t+'</button>'}).join('')+'</div>'+
-   '<div class="cnts"><span>Total: '+(S.checked>=0?28:26)+'</span><span>Checked In: '+(S.checked>=0?1:0)+'</span><span>Ordered: 0</span></div>'+
-   '<div class="scroll"><div class="olist">'+l.map(function(x){return ocard(x[0],x[1])}).join('')+'</div></div><button class="fab" data-act="addout" aria-label="Add outlet">'+I.plus.replace('width="18" height="18"','width="26" height="26"')+'</button>';
+   outletRouteTabs()+
+   '<div class="otabs">'+['Todays plan','Only visit','Visit and Ordered'].map(function(t,i){return '<button class="'+(S.otab===i?'on':'')+'" data-act="otab" data-v="'+i+'">'+t+'</button>'}).join('')+'</div>'+
+   '<div class="upload-status '+uploadTone+'" role="status" aria-live="polite">'+esc(uploadMessage)+'</div>'+
+   '<div class="cnts"><span>Total: '+l.length+'</span><span>Checked In: '+(l.some(function(x){return x[1]===S.checked})?1:0)+'</span><span>Ordered: 0</span></div>'+
+   '<div class="scroll"><div class="olist">'+(l.length?l.map(function(x){return ocard(x[0],x[1])}).join(''):'<div class="outlet-empty" role="status">No outlets match your search and filters.</div>')+'</div></div><button class="fab" data-act="addout" aria-label="Add outlet">'+I.plus.replace('width="18" height="18"','width="26" height="26"')+'</button>';
   if(S.pop==='last3'){var oo=OUT[S.checked];h+='<div class="ov" data-act="closepop"></div><div class="l3"><div class="l3h"><span class="ok">'+I.check+'</span><div><b>Check-In Successful</b><small>'+esc(oo.n)+'</small></div><button class="x" data-act="closepop" aria-label="Close">'+I.x+'</button></div>'+
     '<div class="l3t">Last 3 Orders</div><div class="l3l">'+LAST3.map(function(r){var tot=r.items.reduce(function(t,x){return t+x[1]*x[2]},0);
       return '<div class="l3c"><div class="hh"><img src="'+IMG.gift+'" alt="">'+r.d+'</div><div class="l3b"><div class="l3r"><span>Order ID: <b>'+r.id+'</b></span><span>Total: <b>৳'+tot.toLocaleString('en-IN',{minimumFractionDigits:2})+'</b></span></div>'+
@@ -968,7 +1036,7 @@ V.outlets=function(){
 };
 /* Add Outlet (SR App form; Credit limit and Outstanding Balance left out on request) */
 var AOR=['MIRPUR 12','MIRPUR 1','Uttara','Baddanagar','Gonoktully','Company ghat','Dhaka uddan'];
-var AOPT={cls:['Grocery','Pharmacy','Tea Stall','Super Shop'],loc:['Urban','Semi-Urban','Rural'],ch:['General Trade','Modern Trade','HoReCa'],bd:['Gold','Silver','Platinum'],dl:['Hasan Brothers Enterprise (DB012)']};
+var AOPT={cls:['Grocery','Pharmacy','Tea Stall','Super Shop'],loc:['Urban','Semi-Urban','Rural'],ch:['Wholesale','Retail'],bd:['Gold','Silver','Platinum'],dl:['Hasan Brothers Enterprise (DB012)']};
 /* [key, label, type, centre y inside the sheet, required, extra] */
 var AOF=[['nm',"Outlet's Name:",'in',47,1],['code',"Outlet's Code:",'in',97,1],['cc','Custom Code:','in',147,0,{ph:'MXDfG1'}],['adr','Address:','in',197,1,{ic:'pin'}],
  ['own','Owner Name:','in',247,1],['ct','Contact Num:','in',297,1,{ic:'contact',num:1}],['cls','Outlet<br>Classification:','dd',352,0,{ph:'Select Outlet Classification'}],
@@ -1353,6 +1421,10 @@ function after(){
 function go(v){clearT();S.v=v;S.pop=null;render()}
 var tt;function toast(m){var t=$('#toast');t.textContent=m;t.className='toast on';clearTimeout(tt);tt=setTimeout(function(){t.className='toast'},2600)}
 var A={
+ upload:uploadPending,
+ outletroute:function(e){S.outletRoute=e.dataset.v;render(true);var selected=scr.querySelector('.route-tabs .on');if(selected){var tabs=selected.parentElement;tabs.scrollLeft=Math.max(0,selected.offsetLeft-tabs.offsetLeft-(tabs.clientWidth-selected.offsetWidth)/2)}},
+ outletfiltertoggle:function(){S.outletFiltersOpen=!S.outletFiltersOpen;render(true)},
+ outletfilterclear:function(){S.outletFilters={ch:'',cls:'',locationType:''};render(true)},
  go:function(e){go(e.dataset.v)},
  nyi:function(){toast('Not part of the screenshots')},
  terr:function(e){S.terr[e.dataset.v]=!S.terr[e.dataset.v];render(true)},
@@ -1364,7 +1436,7 @@ var A={
  checkin:function(e){var r=$('#cires').value;
    if(r==='net'){toast('No internet! Please check your connection.');return}
    if(r==='gps'){toast('You are not within GPS range.');return}
-   S.checked=+e.dataset.v;S.pop='last3';render(true)},
+   S.checked=+e.dataset.v;queueUpload('visit',{outletCode:OUT[S.checked].code});S.pop='last3';render(true)},
  order:function(e){if(S.checked!==+e.dataset.v){S.checked=+e.dataset.v;}S.pop='iface';render(true)},
  otab:function(e){S.otab=+e.dataset.v;render(true)},
  htab:function(e){S.htab=+e.dataset.v;render(true)},
@@ -1418,7 +1490,8 @@ var A={
  aosubmit:function(){var A0=S.ao,v=A0.v,err={};AOF.forEach(function(f){if(f[4]&&!String(v[f[0]]||'').trim())err[f[0]]=1});if(!A0.photo)err.photo=1;
    if(v.rt&&AOR.indexOf(v.rt)<0)err.rt=1;A0.err=err;A0.menu=null;
    if(Object.keys(err).length){render(true);toast('Please fill in the required fields');return}
-   OUT.unshift({n:v.nm.trim(),img:'o2',ago:'',dist:'0.0 m',code:v.code,ct:v.ct.trim()+',',terr:v.rt,loc:v.adr.trim(),ord:'No order yet'});
+   queueUpload('outlet',Object.assign({},v,{photo:A0.photo}));
+   OUT.unshift({n:v.nm.trim(),ch:v.ch,cls:v.cls,locationType:v.loc,img:'o2',ago:'',dist:'0.0 m',code:v.code,ct:v.ct.trim()+',',terr:v.rt,loc:v.adr.trim(),ord:'No order yet'});
    if(S.checked>=0)S.checked++;go('outlets');toast('Outlet added successfully')},
  orderback:function(){var any=Object.keys(S.qty).some(function(k){return S.qty[k]>0});S.kp=null;
    if(any){go('outlets');return}S.pop='remarks';S.rmSel=null;S.rmk='';S.rmErr='';render(true)},
@@ -1426,6 +1499,7 @@ var A={
  rmsel:function(e){S.rmSel=e.dataset.v;S.rmErr='';render(true)},
  rmsubmit:function(){
    if(!S.rmSel){S.rmErr='Please select your remarks.';render(true);return}
+   queueUpload('remarks',{outletCode:S.checked>=0?OUT[S.checked].code:null,reason:S.rmSel,remarks:S.rmk||''});
    S.pop=null;S.qty={};go('outlets');toast('Remarks submitted')}
 };
 scr.addEventListener('click',function(ev){var el=ev.target.closest('[data-act]');
@@ -1434,7 +1508,7 @@ scr.addEventListener('click',function(ev){var el=ev.target.closest('[data-act]')
   if(S.v==='addout'&&S.ao.menu&&!ev.target.closest('.afm')&&!(el&&el.dataset.act==='aomenu')){S.ao.menu=null;render(true);return}
   if(!el||!scr.contains(el))return;var f=A[el.dataset.act];if(f)f(el)});
 scr.addEventListener('scroll',function(ev){var t=ev.target;if(t.id==='pdfs'){var pg=t.querySelectorAll('.pg'),n=1;pg.forEach(function(x,i){if(x.offsetTop-t.scrollTop<t.clientHeight/2)n=i+1});var el=$('#pgno');if(el)el.textContent=n+' / '+pg.length}},true);
-scr.addEventListener('change',function(ev){var t=ev.target;if(t.dataset&&t.dataset.sku){S.skuBy=t.value;render(true);return}if(t.dataset&&t.dataset.lb&&S.lb.t)S.lb.t[t.dataset.lb]=t.value});
+scr.addEventListener('change',function(ev){var t=ev.target;if(t.dataset&&t.dataset.outletFilter){var filterId=t.id;outletFilterValues()[t.dataset.outletFilter]=t.value;render(true);var filterEl=document.getElementById(filterId);if(filterEl)filterEl.focus();return}if(t.dataset&&t.dataset.sku){S.skuBy=t.value;render(true);return}if(t.dataset&&t.dataset.lb&&S.lb.t)S.lb.t[t.dataset.lb]=t.value});
 scr.addEventListener('input',function(ev){var t=ev.target;
   if(t.dataset&&t.dataset.ao){var k=t.dataset.ao;S.ao.v[k]=t.value;if(S.ao.err[k]&&t.value.trim()){delete S.ao.err[k];var p0=t.selectionStart;render(true);var m0=$('#ao_'+k);if(m0){m0.focus();m0.setSelectionRange(p0,p0)}}else if(k==='rt'){S.ao.menu='rt';var p1=t.selectionStart;render(true);var m1=$('#ao_rt');m1.focus();m1.setSelectionRange(p1,p1)}return}
   if(t.id==='q'){S.q=t.value;var p=t.selectionStart;render(true);var n=$('#q');n.focus();n.setSelectionRange(p,p)}
