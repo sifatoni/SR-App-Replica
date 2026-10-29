@@ -1,8 +1,24 @@
 {
   "rewrites": [
-    { "source": "/", "destination": "/SR App - Replica.html" },
-    { "source": "/srapp", "destination": "/SR App - Replica.html" },
-    { "source": "/distributor", "destination": "/Distributor App.html" },
-    { "source": "/promotion", "destination": "/Promotion.html" }
+    {
+      "source": "/",
+      "destination": "/SR App - Replica.html"
+    },
+    {
+      "source": "/srapp",
+      "destination": "/SR App - Replica.html"
+    },
+    {
+      "source": "/distributor",
+      "destination": "/Distributor App.html"
+    },
+    {
+      "source": "/promotion",
+      "destination": "/Promotion.html"
+    },
+    {
+      "source": "/manager",
+      "destination": "/Manager App.html"
+    }
   ]
 }
