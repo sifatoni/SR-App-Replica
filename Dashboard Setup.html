@@ -394,20 +394,9 @@ body.is-dragging, body.is-dragging *{cursor:grabbing !important;user-select:none
     {id:"total_value",        name:"Total Value",                ic:"wallet",   v:"16,300"},
     {id:"avg_value_order",    name:"Average V/Order",            ic:"eq",       v:"652"},
     {id:"avg_value_outlet",   name:"Average Value/Ordered Outlet",ic:"money",   v:"741"},
-    // the SR / Manager App dashboard cards that are not already above (Order, Productive Call, PC Achv, Visit OL,
-    // MTD Sales, Achv% and MTD Productive Call were the same as a header above or the same header for another period)
-    {id:"rr_target",          name:"RR Target",                  ic:"adjust",   v:"14,319"},
-    {id:"ach_pct",            name:"Achievement (%)",                       ic:"trend",    v:"114.0%", tone:"ok"},
+    // the SR / Manager App dashboard cards that are not already above; no target or achievement headers
     {id:"retail",             name:"Retail",                     ic:"store",    v:"16,300"},
     {id:"ws",                 name:"WS",                         ic:"house",    v:"0"},
-    {id:"cc_rope_tgt",        name:"CC Rope Target",                ic:"flag",     v:"168.0"},
-    {id:"cc_rope_achv",       name:"CC Rope Achievement",               ic:"trophy",   v:"62.0",   bar:[37,"of 168.0"]},
-    {id:"retail_pc_achv",     name:"Retail PC Achievement",             ic:"bag",      v:"22"},
-    {id:"lpc2_achv",          name:"2 LPC Achievement",                 ic:"layers",   v:"426"},
-    {id:"retail_lpc2_achv",   name:"Retail 2LPC Achievement",           ic:"chk",      v:"7"},
-    {id:"month_target",       name:"Month Target",               ic:"event",    v:"378,652"},
-    {id:"cc_duo_tgt",         name:"CC Duo Target",                 ic:"cross",    v:"141.0"},
-    {id:"cc_duo_achv",        name:"CC Duo Achievement",                ic:"star",     v:"142.0",  bar:[101,"of 141.0"]},
     {id:"ord_vs_del",         name:"Order vs Delivery (%)",                 ic:"truck",    v:"95.63%"}
   ];
   const byId = Object.fromEntries(KPIS.map(k=>[k.id,k]));

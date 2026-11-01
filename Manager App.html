@@ -61,6 +61,7 @@ input{font-family:inherit}
 .ksr b{font:600 18px Poppins,sans-serif;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .ksr em{font-style:normal;font-weight:500;color:var(--t);margin-left:4px}
 /* KPI cards (same as the SR App) */
+.kempty{background:#fff;border:1.5px dashed #c9d6d9;border-radius:12px;padding:26px 18px;text-align:center;font:400 15px/1.5 Poppins,sans-serif;color:#5f7377}
 .kgrid{display:grid;grid-template-columns:1fr 1fr;grid-auto-rows:1fr;gap:10px}
 .kc{position:relative;overflow:hidden;min-width:0;display:flex;flex-direction:column;gap:4px;background:var(--kb);border-radius:12px;padding:10px 12px 11px;box-shadow:0 1px 3px rgba(16,60,70,.08)}
 .kc.tl{--kb:#e3f5f9;--kf:#0e8ba0;--kv:#0a6676}
@@ -135,7 +136,7 @@ var MON=['January','February','March','April','May','June','July','August','Sept
 function p2(n){return ('0'+n).slice(-2)}
 function hm(d){return (d.getHours()%12||12)+':'+p2(d.getMinutes())}
 
-/* the manager's team: [code, name] and per SR [target size, achievement, wholesale share, visits made of 47] */
+/* the manager's team: [code, name] and per SR [size, performance, wholesale share, visits made of 47 scheduled] */
 var KSR=[['20133','Md. Ratan Mia'],['20118','Shakil Ahmed'],['20141','Arif Hossain'],['20152','Rony Sarker'],['20160','Sumon Uddin'],['20174','Jahid Islam'],['20187','Tanvir Hossain'],['20195','Mamun Hossain'],['20203','Rakib Hasan'],['20219','Milon Ahmed']];
 var KSRF=[[1,1,0,47],[.84,.85,.08,44],[1.12,.92,.12,47],[.71,.69,0,39],[.93,1.06,.05,46],[1.05,.77,.1,45],[.66,.63,0,35],[1.2,.96,.15,47],[.8,.83,0,42],[.98,.9,.06,47]];
 var KPER=[['today','Today'],['wtd','WTD'],['mtd','MTD'],['qtd','QTD']];
@@ -152,61 +153,115 @@ var IC={cal:'<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
  home:'<svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>',
  dash:'<svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg>',
  team:'<svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>'};
-/* card look: a filled icon per card (all different); colours by position (tl or / pu gr), so no card touches its own colour */
-var KICO={adjust:'M12 2C6.49 2 2 6.49 2 12s4.49 10 10 10 10-4.49 10-10S17.51 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3-8c0 1.66-1.34 3-3 3s-3-1.34-3-3 1.34-3 3-3 3 1.34 3 3z',
- receipt:'M18 17H6v-2h12v2zm0-4H6v-2h12v2zm0-4H6V7h12v2zM3 22l1.5-1.5L6 22l1.5-1.5L9 22l1.5-1.5L12 22l1.5-1.5L15 22l1.5-1.5L18 22l1.5-1.5L21 22V2l-1.5 1.5L18 2l-1.5 1.5L15 2l-1.5 1.5L12 2l-1.5 1.5L9 2 7.5 3.5 6 2 4.5 3.5 3 2v20z',
- trend:'M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z',
- store:'M20 4H4v2h16V4zm1 10v-2l-1-5H4l-1 5v2h1v6h10v-6h4v6h2v-6h1zm-9 4H6v-4h6v4z',
- warehouse:'M22 21V7L12 3 2 7v14h5v-9h10v9h5zm-11-2H9v2h2v-2zm2-3h-2v2h2v-2zm2 3h-2v2h2v-2z',
- phone:'M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z',
- flag:'M14.4 6L14 4H5v17h2v-7h5.6l.4 2h7V6z',
- trophy:'M19 5h-2V3H7v2H5c-1.1 0-2 .9-2 2v1c0 2.55 1.92 4.63 4.39 4.94.63 1.5 1.98 2.63 3.61 2.96V19H7v2h10v-2h-4v-3.1c1.63-.33 2.98-1.46 3.61-2.96C19.08 12.63 21 10.55 21 8V7c0-1.1-.9-2-2-2zM5 8V7h2v3.82C5.84 10.4 5 9.3 5 8zm14 0c0 1.3-.84 2.4-2 2.82V7h2v1z',
- cartadd:'M11 9h2V6h3V4h-3V1h-2v3H8v2h3v3zm-4 9c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2zm-9.83-3.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.86-7.01L19.42 4h-.01l-1.1 2-2.76 5H8.53l-.13-.27L6.16 6l-.95-2-.94-2H1v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.13 0-.25-.11-.25-.25z',
- bag:'M19 6h-2c0-2.76-2.24-5-5-5S7 3.24 7 6H5c-1.1 0-1.99.9-1.99 2L3 20c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-7-3c1.66 0 3 1.34 3 3H9c0-1.66 1.34-3 3-3zm0 10c-2.76 0-5-2.24-5-5h2c0 1.66 1.34 3 3 3s3-1.34 3-3h2c0 2.76-2.24 5-5 5z',
- layers:'M11.99 18.54l-7.37-5.73L3 14.07l9 7 9-7-1.63-1.27-7.38 5.74zM12 16l7.36-5.73L21 9l-9-7-9 7 1.63 1.27L12 16z',
- checklist:'M14 10H2v2h12v-2zm0-4H2v2h12V6zM2 16h8v-2H2v2zm19.5-4.5L23 13l-6.99 7-4.51-4.5L13 14l3.01 3 5.49-5.5z',
- pin:'M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z',
- event:'M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z',
- crosshair:'M12 8c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm8.94 3A8.994 8.994 0 0013 3.06V1h-2v2.06A8.994 8.994 0 003.06 11H1v2h2.06A8.994 8.994 0 0011 20.94V23h2v-2.06A8.994 8.994 0 0020.94 13H23v-2h-2.06zM12 19c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z',
- star:'M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm4.24 16L12 15.45 7.77 18l1.12-4.81-3.73-3.23 4.92-.42L12 5l1.92 4.53 4.92.42-3.73 3.23L16.23 18z',
- bars:'M5 9.2h3V19H5zM10.6 5h2.8v14h-2.8zm5.6 8H19v6h-2.8z',
- pie:'M11 2v20c-5.07-.5-9-4.79-9-10s3.93-9.5 9-10zm2.03 0v8.99H22c-.47-4.74-4.24-8.52-8.97-8.99zm0 11.01V22c4.74-.47 8.5-4.25 8.97-8.99h-8.97z',
- talk:'M20 15.5c-1.25 0-2.45-.2-3.57-.57-.35-.11-.74-.03-1.02.24l-2.2 2.2c-2.83-1.44-5.15-3.75-6.59-6.59l2.2-2.21c.28-.26.36-.65.25-1L8.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1zM19 12h2c0-4.97-4.03-9-9-9v2c3.87 0 7 3.13 7 7zm-4 0h2c0-2.76-2.24-5-5-5v2c1.66 0 3 1.34 3 3z',
- truck:'M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9l1.96 2.5H17V9.5h2.5zm-1.5 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z'};
-var KLOOK=['adjust','receipt','trend','store','warehouse','phone','flag','trophy','cartadd','bag','layers','checklist','pin','event','crosshair','star','bars','pie','talk','truck'];
+/* the dashboard follows Dashboard Setup: the headers saved there for this role, in that order (same browser storage);
+   until something is saved there, its default list. [id, name, icon, kind]: n number, p / p2 percent, d one decimal, h hours */
+var DH=[['new_outlet','New Outlet','addbiz','n'],
+ ['unique_visit','Unique Visit','eye','n'],
+ ['visit_coverage','Visit Coverage','map','p'],
+ ['avg_working_hours','Average Working Hours','clock','h'],
+ ['avg_face_time','Average Face Time (Min)','timer','d'],
+ ['total_schedule_call','Total Schedule Call','note','n'],
+ ['total_visit_call','Total Visit Call','walk','n'],
+ ['visited_pct','Visited (%)','donut','p'],
+ ['unique_ordered','Unique Ordered Outlet','check','n'],
+ ['productive_coverage','Productive Coverage','explore','p'],
+ ['total_order','Total Order','assign','n'],
+ ['schedule_prod','Schedule Productivity (%)','speed','p'],
+ ['visit_prod','Visit Productivity (%)','chart','p'],
+ ['total_sku','Total SKU','inv','n'],
+ ['lpc','LPC','list','d'],
+ ['total_category','Total Category','cat','n'],
+ ['cpc','CPC','apps','d'],
+ ['total_brand','Total Brand','tag','n'],
+ ['bpc','BPC','mark','d'],
+ ['total_value','Total Value','wallet','n'],
+ ['avg_value_order','Average V/Order','eq','n'],
+ ['avg_value_outlet','Average Value/Ordered Outlet','money','n'],
+ ['retail','Retail','store','n'],
+ ['ws','WS','house','n'],
+ ['ord_vs_del','Order vs Delivery (%)','truck','p2']];
+var DH_DEFAULT=["unique_visit","visit_coverage","avg_working_hours","total_schedule_call","total_visit_call","visited_pct","unique_ordered","productive_coverage","total_order","schedule_prod","visit_prod"];
+function dhIds(role){var p=null;try{p=JSON.parse(localStorage.getItem('kpi-setup-policies')||'null')}catch(e){}
+  var ids=p&&Array.isArray(p.order)&&p.lists?(p.order.indexOf(role)>-1?p.lists[role]||[]:[]):DH_DEFAULT;
+  return ids.filter(function(id){return DH.some(function(h){return h[0]===id})})}
+/* one SR over d days; f = [size, performance, wholesale share, visits made of 47 scheduled]. SR 20133 / Today = Dashboard Setup's sample values */
+function dhMetrics(f,d){var r=function(v){return Math.round(v*f[0]*f[1])},sch=47*d,uv=f[3]*d,vc=Math.round(f[3]*52/47)*d,oo=r(22)*d,ord=r(25)*d,val=r(16300)*d,ws=Math.round(val*f[2]);
+  return {new_outlet:Math.round(3*f[0])*d,unique_visit:uv,visit_coverage:uv/sch*100,avg_working_hours:465-Math.round((1-f[1])*60),avg_face_time:6.4*f[1],
+   total_schedule_call:sch,total_visit_call:vc,visited_pct:uv/sch*100,unique_ordered:oo,productive_coverage:oo/sch*100,total_order:ord,schedule_prod:oo/sch*100,
+   visit_prod:oo/vc*100,total_sku:Math.round(64*f[0]),lpc:2.6*f[1],total_category:Math.round(18*f[0]),cpc:.8*f[1],total_brand:Math.round(31*f[0]),bpc:1.4*f[1],
+   total_value:val,avg_value_order:val/ord,avg_value_outlet:val/oo,retail:val-ws,ws:ws,ord_vs_del:Math.min(99.9,95.63+(f[1]-1)*6)}}
+/* a team: counts and amounts add up, averages are averaged, SKU / category / brand counts are the widest SR's, the percentages come from the totals */
+function dhTeam(ms){var sum=function(k){return ms.reduce(function(s,m){return s+m[k]},0)},t={};
+  ['new_outlet','unique_visit','total_schedule_call','total_visit_call','unique_ordered','total_order','total_value','retail','ws'].forEach(function(k){t[k]=sum(k)});
+  ['avg_working_hours','avg_face_time','lpc','cpc','bpc','ord_vs_del'].forEach(function(k){t[k]=sum(k)/ms.length});
+  ['total_sku','total_category','total_brand'].forEach(function(k){t[k]=Math.max.apply(null,ms.map(function(m){return m[k]}))});
+  t.visit_coverage=t.visited_pct=t.unique_visit/t.total_schedule_call*100;t.productive_coverage=t.schedule_prod=t.unique_ordered/t.total_schedule_call*100;
+  t.visit_prod=t.unique_ordered/t.total_visit_call*100;t.avg_value_order=t.total_value/t.total_order;t.avg_value_outlet=t.total_value/t.unique_ordered;return t}
+function dhVal(k,v){if(k==='p')return v.toFixed(1)+'%';if(k==='p2')return v.toFixed(2)+'%';if(k==='d')return v.toFixed(1);if(k==='h')return Math.floor(v/60)+'h '+Math.round(v%60)+'m';return Math.round(v).toLocaleString('en-US')}
+function dhTone(k,v){if(k!=='p')return '';v=Math.round(v);return v>=100?' ok':v>=80?'':v>=50?' mid':' low'}
+/* card look: Dashboard Setup's icon for each header; colours by position (tl or / pu gr), so no card touches its own colour */
+var KICO={
+    addbiz:"M15 17h2v-3h1v-2l-1-5H2l-1 5v2h1v6h9v-6h4v3zm-6 1H4v-4h5v4zM2 4h15v2H2zM20 18v-3h-2v3h-3v2h3v3h2v-3h3v-2z",
+    eye:"M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z",
+    map:"M20.5 3l-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5zM15 19l-6-2.11V5l6 2.11V19z",
+    clock:"M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z",
+    timer:"M15 1H9v2h6V1zm-4 13h2V8h-2v6zm8.03-6.61l1.42-1.42c-.43-.51-.9-.99-1.41-1.41l-1.42 1.42A8.962 8.962 0 0012 4c-4.97 0-9 4.03-9 9s4.02 9 9 9 9-4.03 9-9c0-2.12-.74-4.07-1.97-5.61zM12 20c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z",
+    note:"M17 10H7v2h10v-2zm2-7h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zm-5-5H7v2h7v-2z",
+    walk:"M13.5 5.5c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zM9.8 8.9L7 23h2.1l1.8-8 2.1 2v6h2v-7.5l-2.1-2 .6-3C14.8 12 16.8 13 19 13v-2c-1.9 0-3.5-1-4.3-2.4l-1-1.6c-.4-.6-1-1-1.7-1-.3 0-.5.1-.8.1L6 8.3V13h2V9.6l1.8-.7",
+    donut:"M11 5.08V2c-5 .5-9 4.81-9 10s4 9.5 9 10v-3.08c-3-.48-6-3.4-6-6.92s3-6.44 6-6.92zM18.97 11H22c-.47-5-4-8.53-9-9v3.08C16 5.51 18.54 8 18.97 11zM13 18.92V22c5-.47 8.53-4 9-9h-3.03c-.43 3-2.97 5.49-5.97 5.92z",
+    check:"M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z",
+    explore:"M12 10.9c-.61 0-1.1.49-1.1 1.1s.49 1.1 1.1 1.1c.61 0 1.1-.49 1.1-1.1s-.49-1.1-1.1-1.1zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm2.19 12.19L6 18l3.81-8.19L18 6l-3.81 8.19z",
+    assign:"M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm2 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z",
+    speed:"M20.38 8.57l-1.23 1.85a8 8 0 01-.22 7.58H5.07A8 8 0 0115.58 6.85l1.85-1.23A10 10 0 003.35 19a2 2 0 001.72 1h13.85a2 2 0 001.74-1 10 10 0 00-.27-10.44zm-9.79 6.84a2 2 0 002.83 0l5.66-8.49-8.49 5.66a2 2 0 000 2.83z",
+    chart:"M3.5 18.49l6-6.01 4 4L22 6.92l-1.41-1.41-7.09 7.97-4-4L2 16.99z",
+    inv:"M20 2H4c-1 0-2 .9-2 2v3.01c0 .72.43 1.34 1 1.69V20c0 1.1 1.1 2 2 2h14c.9 0 2-.9 2-2V8.7c.57-.35 1-.97 1-1.69V4c0-1.1-1-2-2-2zm-5 12H9v-2h6v2zm5-7H4V4l16-.02V7z",
+    list:"M4 10.5c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5-.67-1.5-1.5-1.5zm0-6c-.83 0-1.5.67-1.5 1.5S3.17 7.5 4 7.5 5.5 6.83 5.5 6 4.83 4.5 4 4.5zm0 12c-.83 0-1.5.68-1.5 1.5s.68 1.5 1.5 1.5 1.5-.68 1.5-1.5-.67-1.5-1.5-1.5zM7 19h14v-2H7v2zm0-6h14v-2H7v2zm0-8v2h14V5H7z",
+    cat:"M12 2l-5.5 9h11zM17.5 13c-2.49 0-4.5 2.01-4.5 4.5s2.01 4.5 4.5 4.5 4.5-2.01 4.5-4.5-2.01-4.5-4.5-4.5zM3 13.5h8v8H3z",
+    apps:"M4 8h4V4H4v4zm6 12h4v-4h-4v4zm-6 0h4v-4H4v4zm0-6h4v-4H4v4zm6 0h4v-4h-4v4zm6-10v4h4V4h-4zm-6 4h4V4h-4v4zm6 6h4v-4h-4v4zm0 6h4v-4h-4v4z",
+    tag:"M21.41 11.58l-9-9C12.05 2.22 11.55 2 11 2H4c-1.1 0-2 .9-2 2v7c0 .55.22 1.05.59 1.42l9 9c.36.36.86.58 1.41.58.55 0 1.05-.22 1.41-.59l7-7c.37-.36.59-.86.59-1.41 0-.55-.23-1.06-.59-1.42zM5.5 7C4.67 7 4 6.33 4 5.5S4.67 4 5.5 4 7 4.67 7 5.5 6.33 7 5.5 7z",
+    mark:"M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2z",
+    wallet:"M21 18v1c0 1.1-.9 2-2 2H5c-1.11 0-2-.9-2-2V5c0-1.1.89-2 2-2h14c1.1 0 2 .9 2 2v1h-9c-1.11 0-2 .9-2 2v8c0 1.1.89 2 2 2h9zm-9-2h10V8H12v8zm4-2.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z",
+    eq:"M10 20h4V4h-4v16zm-6 0h4v-8H4v8zM16 9v11h4V9h-4z",
+    money:"M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z",
+    adjust:"M12 2C6.49 2 2 6.49 2 12s4.49 10 10 10 10-4.49 10-10S17.51 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3-8c0 1.66-1.34 3-3 3s-3-1.34-3-3 1.34-3 3-3 3 1.34 3 3z",
+    receipt:"M18 17H6v-2h12v2zm0-4H6v-2h12v2zm0-4H6V7h12v2zM3 22l1.5-1.5L6 22l1.5-1.5L9 22l1.5-1.5L12 22l1.5-1.5L15 22l1.5-1.5L18 22l1.5-1.5L21 22V2l-1.5 1.5L18 2l-1.5 1.5L15 2l-1.5 1.5L12 2l-1.5 1.5L9 2 7.5 3.5 6 2 4.5 3.5 3 2v20z",
+    trend:"M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z",
+    store:"M20 4H4v2h16V4zm1 10v-2l-1-5H4l-1 5v2h1v6h10v-6h4v6h2v-6h1zm-9 4H6v-4h6v4z",
+    house:"M22 21V7L12 3 2 7v14h5v-9h10v9h5zm-11-2H9v2h2v-2zm2-3h-2v2h2v-2zm2 3h-2v2h2v-2z",
+    phone:"M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z",
+    flag:"M14.4 6L14 4H5v17h2v-7h5.6l.4 2h7V6z",
+    trophy:"M19 5h-2V3H7v2H5c-1.1 0-2 .9-2 2v1c0 2.55 1.92 4.63 4.39 4.94.63 1.5 1.98 2.63 3.61 2.96V19H7v2h10v-2h-4v-3.1c1.63-.33 2.98-1.46 3.61-2.96C19.08 12.63 21 10.55 21 8V7c0-1.1-.9-2-2-2zM5 8V7h2v3.82C5.84 10.4 5 9.3 5 8zm14 0c0 1.3-.84 2.4-2 2.82V7h2v1z",
+    cartadd:"M11 9h2V6h3V4h-3V1h-2v3H8v2h3v3zm-4 9c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2zm-9.83-3.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.86-7.01L19.42 4h-.01l-1.1 2-2.76 5H8.53l-.13-.27L6.16 6l-.95-2-.94-2H1v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.13 0-.25-.11-.25-.25z",
+    bag:"M19 6h-2c0-2.76-2.24-5-5-5S7 3.24 7 6H5c-1.1 0-1.99.9-1.99 2L3 20c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-7-3c1.66 0 3 1.34 3 3H9c0-1.66 1.34-3 3-3zm0 10c-2.76 0-5-2.24-5-5h2c0 1.66 1.34 3 3 3s3-1.34 3-3h2c0 2.76-2.24 5-5 5z",
+    layers:"M11.99 18.54l-7.37-5.73L3 14.07l9 7 9-7-1.63-1.27-7.38 5.74zM12 16l7.36-5.73L21 9l-9-7-9 7 1.63 1.27L12 16z",
+    chk:"M14 10H2v2h12v-2zm0-4H2v2h12V6zM2 16h8v-2H2v2zm19.5-4.5L23 13l-6.99 7-4.51-4.5L13 14l3.01 3 5.49-5.5z",
+    pin:"M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z",
+    event:"M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z",
+    cross:"M12 8c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm8.94 3A8.994 8.994 0 0013 3.06V1h-2v2.06A8.994 8.994 0 003.06 11H1v2h2.06A8.994 8.994 0 0011 20.94V23h2v-2.06A8.994 8.994 0 0020.94 13H23v-2h-2.06zM12 19c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z",
+    star:"M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm4.24 16L12 15.45 7.77 18l1.12-4.81-3.73-3.23 4.92-.42L12 5l1.92 4.53 4.92.42-3.73 3.23L16.23 18z",
+    bars:"M5 9.2h3V19H5zM10.6 5h2.8v14h-2.8zm5.6 8H19v6h-2.8z",
+    pie:"M11 2v20c-5.07-.5-9-4.79-9-10s3.93-9.5 9-10zm2.03 0v8.99H22c-.47-4.74-4.24-8.52-8.97-8.99zm0 11.01V22c4.74-.47 8.5-4.25 8.97-8.99h-8.97z",
+    talk:"M20 15.5c-1.25 0-2.45-.2-3.57-.57-.35-.11-.74-.03-1.02.24l-2.2 2.2c-2.83-1.44-5.15-3.75-6.59-6.59l2.2-2.21c.28-.26.36-.65.25-1L8.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1zM19 12h2c0-4.97-4.03-9-9-9v2c3.87 0 7 3.13 7 7zm-4 0h2c0-2.76-2.24-5-5-5v2c1.66 0 3 1.34 3 3z",
+    truck:"M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9l1.96 2.5H17V9.5h2.5zm-1.5 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"
+};
 var KTONE=['tl','or','pu','gr'];
 function kIcon(k,sz){return '<svg width="'+sz+'" height="'+sz+'" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="'+KICO[k]+'"/></svg>'}
+function dhCards(role,m){var ids=dhIds(role);
+  if(!ids.length)return '<p class="kempty">No dashboard headers are set up for '+role+' yet. Pick them in Dashboard Setup.</p>';
+  return '<div class="kgrid">'+ids.map(function(id,i){var h=DH.filter(function(x){return x[0]===id})[0],v=m[id];
+    return '<div class="kc '+KTONE[(Math.floor(i/2)%2)*2+i%2]+dhTone(h[3],v)+'"><i class="kwm">'+kIcon(h[2],76)+'</i><div class="kh"><i>'+kIcon(h[2],16)+'</i><span>'+h[1]+'</span></div><b>'+dhVal(h[3],v)+'</b></div>'}).join('')+'</div>'}
 function initials(n){return n.split(' ').filter(function(w){return !/^md\.?$/i.test(w)}).map(function(w){return w[0]}).join('').slice(0,2).toUpperCase()}
 function fmtD(d){return d.getDate()+' '+MON[d.getMonth()].slice(0,3)}
 function days(){if(S.per!=='custom'||!S.range)return KMUL[S.per];return Math.round((S.range.b-S.range.a)/864e5)+1}
-
-/* one SR's 20 cards: [label, value, kind, target for the bar, achieved for the bar]; SR 20133 / Today = the reference dashboard */
-function cardsOf(f,d,pre){var g=function(v){return Math.round(v*f[0]*f[1])},rr=Math.round(14319*f[0])*d,ord=g(16300)*d,ws=Math.round(ord*f[2]),pc=g(22)*d,mt=Math.round(378652*f[0]),mtd=g(192499);
-  return [[pre+'RR Target',rr,'n'],[pre+'Order',ord,'n',rr],[pre+'Ach%',ord/rr*100,'p'],[pre+'Retail',ord-ws,'n'],[pre+'WS',ws,'n'],[pre+'Productive Call',pc,'i'],
-   ['CC Rope Tgt',Math.round(168*f[0]),'d'],['CC Rope Achv',g(62),'d',Math.round(168*f[0])],['PC Achv',g(685),'i'],[pre+'Retail PC Achv',pc-Math.round(pc*f[2]),'i'],
-   ['2 LPC Achv',g(426),'i'],[pre+'Retail 2LPC Achv',Math.max(1,g(7))*d,'i'],['Visit OL',f[3],'v',47],['Month Target',mt,'n'],
-   ['CC Duo Tgt',Math.round(141*f[0]),'d'],['CC Duo Achv',g(142),'d',Math.round(141*f[0])],['MTD Sales',mtd,'n',mt],['Achv%',mtd/mt*100,'p'],
-   ['MTD Productive Call',g(318),'i'],['Ord vs Del',Math.min(99.9,95.63+(f[1]-1)*6),'p2']];}
-/* the whole team: counts and amounts add up, the percentages are worked out again from the totals */
-function cards(){var d=days(),pre=S.per==='custom'?'':KPER.filter(function(x){return x[0]===S.per})[0][1]+' ';
-  if(S.sr!=='all')return cardsOf(KSRF[KSR.map(function(x){return x[0]}).indexOf(S.sr)],d,pre);
-  var all=KSRF.map(function(f){return cardsOf(f,d,pre)}),t=all[0].map(function(c){return c.slice()});
-  t.forEach(function(c,i){if(c[2]==='p'||c[2]==='p2')return;c[1]=all.reduce(function(s,a){return s+a[i][1]},0);if(c[3]!=null)c[3]=all.reduce(function(s,a){return s+a[i][3]},0)});
-  t[2][1]=t[1][1]/t[0][1]*100;t[17][1]=t[16][1]/t[13][1]*100;t[19][1]=all.reduce(function(s,a){return s+a[19][1]},0)/all.length;
-  return t}
-function d1(v){return v.toLocaleString('en-US',{minimumFractionDigits:1,maximumFractionDigits:1})}
-function val(c){var v=c[1];if(c[2]==='p')return Math.round(v).toFixed(1)+'%';if(c[2]==='p2')return v.toFixed(2)+'%';if(c[2]==='d')return d1(v);if(c[2]==='v')return v+'/'+c[3];return Math.round(v).toLocaleString('en-US')}
-function tone(c){if(c[2]!=='p')return '';var v=Math.round(c[1]);return v>=100?' ok':v>=80?'':v>=50?' mid':' low'}
-function card(c,i){var bar='',ic=KLOOK[i];
-  if(c[3]){var real=c[1]/c[3]*100,pct=Math.max(0,Math.min(100,real));bar='<div class="kpr"><div class="kbar"><i style="width:'+pct.toFixed(0)+'%"></i></div><small>'+real.toFixed(0)+'% of '+(c[2]==='d'?d1(c[3]):Math.round(c[3]).toLocaleString('en-US'))+'</small></div>'}
-  return '<div class="kc '+KTONE[(Math.floor(i/2)%2)*2+i%2]+tone(c)+'"><i class="kwm">'+kIcon(ic,76)+'</i><div class="kh"><i>'+kIcon(ic,16)+'</i><span>'+c[0]+'</span></div><b>'+val(c)+'</b>'+bar+'</div>'}
+/* the picked SR, or the whole team */
+function metrics(){var d=days();if(S.sr!=='all')return dhMetrics(KSRF[KSR.map(function(x){return x[0]}).indexOf(S.sr)],d);return dhTeam(KSRF.map(function(f){return dhMetrics(f,d)}))}
 
 function dashboard(){var b='<div class="kper" role="tablist">'+KPER.map(function(x){return '<button role="tab" aria-selected="'+(S.per===x[0])+'" class="'+(S.per===x[0]?'on':'')+'" data-act="per" data-v="'+x[0]+'">'+x[1]+'</button>'}).join('')+
     '<button class="kcal'+(S.per==='custom'?' on':'')+'" data-act="cal" aria-label="Pick a date range">'+IC.cal+'</button></div>';
   if(S.per==='custom'&&S.range)b+='<div class="krng">'+IC.cal+'<span>'+fmtD(S.range.a)+(+S.range.b!==+S.range.a?' – '+fmtD(S.range.b):'')+' '+S.range.b.getFullYear()+' · '+days()+' day'+(days()>1?'s':'')+'</span><button data-act="clr" aria-label="Clear date range">'+IC.x+'</button></div>';
   var sr=S.sr==='all'?null:KSR.filter(function(x){return x[0]===S.sr})[0];
   b+='<button class="ksr" data-act="sr">'+(sr?'<i>'+initials(sr[1])+'</i><span><small>SR Name or Code</small><b>'+sr[1]+' <em>'+sr[0]+'</em></b></span>':'<i class="tm">'+IC.team.replace(/30/g,'24')+'</i><span><small>SR Name or Code</small><b>All SRs <em>'+KSR.length+' SR</em></b></span>')+IC.chev+'</button>';
-  return b+'<div class="kgrid">'+cards().map(card).join('')+'</div>'}
+  return b+dhCards('Area Manager',metrics())}
 
 function pop(){
   if(S.pop==='sr'){var q=S.q.trim().toLowerCase(),l=KSR.filter(function(x){return !q||x[1].toLowerCase().indexOf(q)>-1||x[0].indexOf(q)>-1});
@@ -254,6 +309,8 @@ scr.addEventListener('click',function(e){var b=e.target.closest('[data-act]');if
 /* the search box keeps focus while the list narrows */
 scr.addEventListener('input',function(e){if(e.target.id!=='q')return;S.q=e.target.value;var p=e.target.selectionStart;render();var n=$('#q');n.focus();n.setSelectionRange(p,p)});
 document.addEventListener('keydown',function(e){if(e.key==='Escape'&&S.pop){S.pop=null;render()}});
+/* Dashboard Setup saved in another tab: show the new header list */
+window.addEventListener('storage',function(e){if(e.key==='kpi-setup-policies')render()});
 render();
 })();
 </script>
