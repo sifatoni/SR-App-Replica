@@ -809,6 +809,129 @@ input{font-family:inherit}
 .kpg button.ok{background:var(--t);color:#fff;font-size:22px}
 .toast{position:absolute;left:50%;bottom:120px;transform:translateX(-50%);background:#323232;color:#fff;font-size:14px;padding:12px 18px;border-radius:6px;opacity:0;transition:opacity .2s;pointer-events:none;z-index:30;white-space:nowrap}
 .toast.on{opacity:1}
+
+/* ---------- Visit Plan (Route Plan) ---------- */
+.vpt{display:flex;gap:10px;padding:6px 22px 10px}
+.vpt button{flex:1;height:44px;border-radius:22px;background:#fff;border:1px solid #d7dfe0;font:500 17px Poppins,sans-serif;color:#555}
+.vpt button.on{background:var(--t);border-color:var(--t);color:#fff}
+.vpl{padding:4px 22px 90px;display:flex;flex-direction:column;gap:14px}
+.vpc{background:#fff;border:1.5px solid #e2dbe3;border-radius:14px;padding:12px 16px 14px;font:400 15px Poppins,sans-serif;color:#212121}
+.vph{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.vph b{font:600 18px Poppins,sans-serif}
+.vpb{font:500 12px Poppins,sans-serif;padding:3px 10px;border-radius:12px;white-space:nowrap}
+.vpb.ok{background:#e3f5ee;color:#13865d}.vpb.pd{background:#fff1e3;color:#c25a00}
+.vpk{font-size:14px;color:#757575;margin:4px 0 8px}.vpk i{color:var(--t);font-style:normal;font-weight:500}
+.vpw{display:grid;grid-template-columns:62px 1fr;gap:6px 10px;font-size:15px}
+.vpw .d{font-weight:600;color:#424242}.vpw .r{color:#212121}.vpw em{font-style:normal;color:#9e9e9e}
+.vpe{text-align:center;color:#9e9e9e;font:400 16px Poppins,sans-serif;padding:60px 0}
+.vpfab{background:var(--t)!important}
+.vpf{padding:8px 32px 40px;display:flex;flex-direction:column}
+.vpl1{font:600 22px Raleway,Poppins,sans-serif;color:var(--t);margin:26px 0 12px;display:block}
+.vpl1:first-child{margin-top:18px}
+.vpi{position:relative;display:flex;align-items:center;min-height:76px;border-radius:26px;background:#f2eef3;padding:0 26px 0 32px;font:400 22px Poppins,sans-serif;color:#333;width:100%;text-align:left}
+.vpi.sel{border-bottom:none}
+.vpi.sel::after{content:"";position:absolute;left:30px;right:30px;bottom:14px;height:1px;background:#bdbdbd}
+.vpi select{appearance:none;-webkit-appearance:none;position:absolute;inset:0;width:100%;height:100%;padding:0 60px 0 32px;border:0;background:transparent;font:inherit;color:inherit;border-radius:26px;cursor:pointer}
+.vpi select:invalid,.vpi select option[value=""]{color:#666}
+.vpi>svg{position:absolute;right:28px;color:#555;pointer-events:none}
+.vpi.sel>svg{width:22px;height:22px}
+.vpi input[type=date]{position:absolute;inset:0;opacity:0;width:100%;height:100%;cursor:pointer;border-radius:26px}
+.vpi input[type=date]::-webkit-calendar-picker-indicator{position:absolute;inset:0;width:100%;height:100%;cursor:pointer}
+.vpi .ph{color:#555;font-size:21px}
+.vpi.btn{cursor:pointer;padding-right:60px;padding-block:14px}
+.vpi:focus-within,.vpi:focus-visible{outline:2px solid var(--t);outline-offset:2px}
+.vch{display:flex;flex-wrap:wrap;gap:8px}
+.vch span{background:#fff;border:1px solid #cfe5e8;color:var(--t);border-radius:16px;padding:3px 12px;font-size:16px}
+.vpdays{display:flex;flex-wrap:wrap;gap:14px 16px}
+.vpdays button{min-width:84px;height:56px;padding:0 20px;border-radius:28px;background:#f2eef3;font:400 24px Poppins,sans-serif;color:#212121}
+.vpdays button.on{background:var(--t);color:#fff}
+.vpdays button:focus-visible{outline:2px solid var(--t);outline-offset:2px}
+.vphint{font:400 15px Poppins,sans-serif;color:#757575;margin:14px 2px 0}
+.vpdc{margin-top:16px;background:#fff;border:1.5px solid #e2dbe3;border-radius:18px;padding:12px 14px 6px 20px}
+.vpdh{display:flex;justify-content:space-between;align-items:baseline;padding-bottom:6px;border-bottom:1px solid #eee}
+.vpdh b{font:600 19px Poppins,sans-serif;color:#212121}.vpdh span{font:400 14px Poppins,sans-serif;color:#757575}
+.vpr{display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:54px;border-bottom:1px solid #f1f1f1;font:400 18px Poppins,sans-serif;color:#212121}
+.vpr:last-child{border-bottom:none}
+.vpr .n{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.vpr small{font:500 11px Poppins,sans-serif;padding:2px 8px;border-radius:10px;background:#e3f5ee;color:#13865d}
+.vpr.gone .n{color:#9e9e9e;text-decoration:line-through}.vpr.gone small{background:#fde8e7;color:#d32f2f;text-decoration:none}
+.vpr.empty .n{color:#9e9e9e}
+.vpr .sw{width:46px;height:46px;border-radius:12px;background:#e6f3f4;color:var(--t);display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+.vpr .sw:focus-visible{outline:2px solid var(--t)}
+.vpchg{margin-top:16px;background:#e6f3f4;border-radius:16px;padding:12px 16px;display:flex;flex-direction:column;gap:4px;font:400 15px Poppins,sans-serif;color:#212121}
+.vpchg b{font-weight:600;color:var(--t)}
+.vpchg button{align-self:flex-start;margin-top:6px;font:500 14px Poppins,sans-serif;color:var(--t);text-decoration:underline;text-underline-offset:3px}
+.vpgo{align-self:center;margin-top:34px;width:350px;height:78px;border-radius:39px;background:#1a8f9c;color:#fff;font:600 38px Raleway,Poppins,sans-serif;box-shadow:0 4px 6px rgba(0,0,0,.2)}
+.vpgo.off{opacity:.45}
+.vpgo.sm{width:100%;height:56px;font-size:20px;margin-top:12px}
+.vpgo:focus-visible{outline:3px solid #0d5f69;outline-offset:3px}
+.vpsh{position:absolute;left:0;right:0;bottom:0;z-index:11;background:#fff;border-radius:24px 24px 0 0;padding:10px 24px 24px;max-height:75%;display:flex;flex-direction:column;font-family:Poppins,sans-serif}
+.vpsh .g{width:44px;height:5px;border-radius:3px;background:#d9d9d9;margin:0 auto 10px}
+.vpsh h3{font:600 20px Poppins,sans-serif;color:#212121;text-align:center}
+.vpsh .s{font-size:14px;color:#757575;text-align:center;margin:4px 0 0}
+.vps{display:flex;align-items:center;gap:8px;margin:12px 0 6px;background:#f2eef3;border-radius:14px;padding:0 14px;color:#757575}
+.vps input{flex:1;height:48px;border:0;background:transparent;font:400 16px Poppins,sans-serif;outline:none;color:#212121}
+.vpls{overflow-y:auto;display:flex;flex-direction:column}
+.vpls>button{display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:56px;border-bottom:1px solid #f0f0f0;text-align:left;font:400 17px Poppins,sans-serif;color:#212121;padding:0 4px}
+.vpls>button:focus-visible{outline:2px solid var(--t)}
+.vpls>button span{font-size:13px;color:var(--t);background:#e6f3f4;border-radius:12px;padding:3px 10px}
+.vpls>button span.no{color:#757575;background:#f1f1f1}
+.vpls>button.ck{justify-content:flex-start}
+.vpls>button.ck i{width:26px;height:26px;border-radius:7px;border:2px solid #bdbdbd;display:flex;align-items:center;justify-content:center;color:#fff}
+.vpls>button.ck.on i{background:var(--t);border-color:var(--t)}
+.vpa{position:absolute;left:32px;right:32px;top:50%;transform:translateY(-50%);z-index:11;background:#fff;border-radius:18px;padding:18px 18px 12px;display:flex;flex-direction:column;gap:10px;font-family:Poppins,sans-serif}
+.vpa h3{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:6px;font:600 17px Poppins,sans-serif;color:#212121;text-align:center;margin-bottom:4px}
+.vpa h3 small{font:500 11px Poppins,sans-serif;color:var(--t);background:#e6f3f4;border-radius:8px;padding:1px 6px}
+.vpa h3 svg{color:var(--t)}
+.vpa .o{display:flex;flex-direction:column;gap:3px;text-align:left;border:1.5px solid #cfe5e8;border-radius:14px;padding:12px 14px;font:400 14px Poppins,sans-serif;color:#424242}
+.vpa .o b{font:600 18px Poppins,sans-serif;color:var(--t)}
+.vpa .o:hover{background:#f3fafb}.vpa .o:focus-visible{outline:2px solid var(--t)}
+.vpa .c{align-self:center;font:500 15px Poppins,sans-serif;color:#757575;padding:6px 16px}
+
+/* Visit Plan list - copied from the app screenshot (2026-11-15) */
+.vpv{background:#fafafa}
+.ab h2.vph2{font-size:30px}
+.vpt2{display:flex;margin:4px 30px 8px;background:#fff;border-radius:8px}
+.vpt2 button{flex:1;height:38px;border-radius:8px;font:500 25px Raleway,Poppins,sans-serif;color:#111}
+.vpt2 button.on{background:var(--t);color:#fff}
+.vpt2 button:focus-visible{outline:2px solid var(--t);outline-offset:2px}
+.vpxl{padding:2px 30px 90px;display:flex;flex-direction:column;gap:16px}
+.vpx{background:#fff;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,.12);padding:6px 8px 8px 7px;font:400 12.5px Poppins,sans-serif;color:#111}
+.vpx .t{display:flex;justify-content:space-between;align-items:center;padding:2px 2px 4px;border-bottom:1.5px solid #9e9e9e}
+.vpx .id{display:flex;align-items:center;gap:8px;font-size:12px}
+.vpx .id svg{color:var(--t)}
+.vpx .t b{font:600 12.5px Poppins,sans-serif;color:var(--t)}
+.vpx .m{display:flex;justify-content:space-between;gap:10px;padding:8px 2px 0}
+.vpx i{font-style:normal;color:#555}
+.vpx .nt{padding:2px 2px 0;font-size:11.5px;color:#9e9e9e}
+.vpx .f{display:flex;justify-content:space-between;align-items:center;padding:10px 2px 0}
+.vpx .f>span:first-child{display:flex;align-items:center;gap:4px}
+.vpx .f svg{color:var(--t)}
+.vpx .pl{font:500 12px Poppins,sans-serif;color:#ff5722;background:#fdeeee;border-radius:12px;padding:3px 9px}
+.vpx .pl.pd{color:#c25a00;background:#fff1e3}
+.vpxf{position:absolute;right:14px;bottom:18px;z-index:4;display:flex;align-items:center;gap:8px;height:44px;padding:0 20px 0 16px;border-radius:22px;background:var(--t);color:#fff;font:600 14px Poppins,sans-serif;box-shadow:0 3px 6px rgba(0,0,0,.25)}
+.vpxf:focus-visible{outline:3px solid #0d5f69;outline-offset:2px}
+
+.vpov{background:rgba(0,0,0,.42)}
+.vpop{position:absolute;left:32px;right:26px;top:50%;transform:translateY(-50%);z-index:11;background:#fff;border-radius:3px;padding:14px 19px 60px;min-height:305px;box-shadow:0 8px 24px rgba(0,0,0,.25)}
+.vpop h3{font:500 13px Poppins,sans-serif;color:#ff5722;text-align:center;padding-bottom:9px;border-bottom:1.5px solid #9e9e9e;margin:0 0 14px}
+.vpop .ch{display:flex;flex-wrap:wrap;gap:13px 8px;padding:0 12px}
+.vpop .ch span{background:#efefef;border-radius:13px;padding:3px 7px;font:400 13px Poppins,'Hind Siliguri',sans-serif;color:#222;white-space:nowrap}
+
+.vpday{margin-top:22px;background:#fff;border:1.5px solid #e2dbe3;border-radius:18px;padding:12px 18px 8px;font-family:Poppins,sans-serif}
+.vpday .hd{display:flex;justify-content:space-between;align-items:baseline;gap:8px;padding-bottom:8px;border-bottom:1px solid #eee}
+.vpday .hd b{font:600 18px Poppins,sans-serif;color:#212121}
+.vpday .hd span{font:400 14px Poppins,sans-serif;color:#757575;white-space:nowrap}
+.vpday .sec{font:600 13px Poppins,sans-serif;color:var(--t);margin:10px 0 2px;letter-spacing:.02em}
+.vpday .rw{display:flex;justify-content:space-between;align-items:center;gap:10px;min-height:42px;border-bottom:1px solid #f3f3f3;font:400 17px Poppins,sans-serif;color:#212121}
+.vpday .rw:last-child{border-bottom:none}
+.vpday .rw.none span{color:#9e9e9e;font-size:15px}
+.vpday .rw.dup span{font-weight:500}
+.vpday em{font:500 12px Poppins,sans-serif;font-style:normal;border-radius:10px;padding:2px 10px;white-space:nowrap}
+.vpday em.wk{background:#e6f3f4;color:var(--t)}
+.vpday em.tr{background:#ede7f6;color:#5e35b1}
+.vpday em.nw{background:#e3f5ee;color:#13865d}
+.vpday em.wa{background:#fff1e3;color:#c25a00}
 </style>
 </head>
 <body>
@@ -947,7 +1070,7 @@ V.home=function(){
   return sb(true)+'<div class="view"><div class="ab"><button class="ibx" data-act="nyi" aria-label="Menu">'+I.menu+'</button><h2>Home</h2><button class="ibx" data-act="nyi" aria-label="Notifications">'+I.bell+'<span class="bdg">11</span></button></div>'+
    '<div class="scroll"><div class="home">'+
    '<div class="hc2 one"><button class="hcard t big" data-act="go" data-v="outlets"><i><img src="'+IMG.i_outlet+'" alt=""></i><b>My Outlet</b><span>Find all the outlet using this option.</span></button></div>'+
-   '<div class="grid">'+tiles.map(function(t){return '<button class="tile" data-act="'+(t[0]==='dayin'?'daytile':t[0]==='target'?'go" data-v="tgt':'nyi')+'"><img src="'+IMG['i_'+t[0]]+'" alt="">'+t[1]+'</button>'}).join('')+'</div></div></div>'+bnav()+
+   '<div class="grid">'+tiles.map(function(t){return '<button class="tile" data-act="'+(t[0]==='dayin'?'daytile':t[0]==='target'?'go" data-v="tgt':t[0]==='rplan'?'go" data-v="vplan':'nyi')+'"><img src="'+IMG['i_'+t[0]]+'" alt="">'+t[1]+'</button>'}).join('')+'</div></div></div>'+bnav()+
    dayoutPop()+'</div>';
 };
 function ocard(o,i){var ci=S.checked===i;
@@ -1390,6 +1513,120 @@ V.tgt=function(){if(S.pop==='tgf'&&!S.tgT)S.tgT=Object.assign({},S.tg);var T=S.t
      '<button class="gen" data-act="tgapply">Show Details</button></div>'}
   return h+'</div>';
 };
+/* ---------- Route Plan → Visit Plan (APK: VisitPlanPage, Active / Proposed, AddVisitPlanPage) ----------
+   Changes asked by the user (2026-11-15):
+   - Timespan only Weekly or Tour.
+   - Tour: Select Date + Select Route Names only.
+   - Weekly: no 1st Check-in Point, no Reporting Time. Pick one or more days -> each day shows the routes it has now;
+     the swap button on a route lists all the SR's routes; picking one asks Swap Route (exchange the two) or Add Route
+     (this day gets both, the other day keeps its route). */
+var VPD=['Sat','Sun','Mon','Tue','Wed','Thu','Fri'],VPF={Sat:'Saturday',Sun:'Sunday',Mon:'Monday',Tue:'Tuesday',Wed:'Wednesday',Thu:'Thursday',Fri:'Friday'};
+/* the SR's active weekly plan (approved in DMS) */
+var VPW={Sat:['MIRPUR 12'],Sun:['MIRPUR 1'],Mon:['Uttara'],Tue:['Baddanagar'],Wed:['Gonoktully'],Thu:['Company ghat','Dhaka uddan'],Fri:[]};
+var VPIC={swap:'<svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4L3 8l4 4M3 8h13M17 20l4-4-4-4M21 16H8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+ cal:'<svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2v3M17 2v3M3.5 9h17M5 4.5h14A1.5 1.5 0 0120.5 6v13a1.5 1.5 0 01-1.5 1.5H5A1.5 1.5 0 013.5 19V6A1.5 1.5 0 015 4.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>',
+ drop:'<svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6z" fill="currentColor"/></svg>',
+ chk:'<svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>'};
+function vpCopy(w){var o={};VPD.forEach(function(d){o[d]=w[d].slice()});return o;}
+function vpFresh(){return {tab:'active',ts:'',days:[],w:vpCopy(VPW),date:'',routes:[],src:null,tgt:null,q:'',log:[]};}
+function vpS(){if(!S.vp)S.vp=vpFresh();if(!S.vpProp)S.vpProp=[];return S.vp;}
+function vpFmtDate(v){if(!v)return '';var p=v.split('-'),M=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];return +p[2]+' '+M[+p[1]-1]+' '+p[0];}
+/* the day(s) a route sits on in the draft */
+function vpDaysOf(w,r){return VPD.filter(function(d){return w[d].indexOf(r)>-1});}
+function vpChanged(P){return VPD.some(function(d){return P.w[d].join('|')!==VPW[d].join('|')});}
+function vpDiff(w){var out=[];VPD.forEach(function(d){var a=VPW[d],b=w[d];if(a.join('|')!==b.join('|'))out.push(d+': '+(a.length?a.join(', '):'—')+'  →  '+(b.length?b.join(', '):'—'))});return out;}
+
+/* Active list = the app's real card: one card per route plan (id, route, Time Span, days, Exp, Outlets) */
+var VPID={'MIRPUR 12':145,'MIRPUR 1':205,'Uttara':210,'Baddanagar':212,'Gonoktully':267,'Company ghat':268,'Dhaka uddan':269};
+var VPTOUR=[{id:270,route:'Uttara',date:'2026-11-22'},{id:271,route:'Baddanagar',date:'2026-11-22'}];
+var VPCI={lines:'<svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 11h13M3 16h9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>',
+ cal:'<svg width="15" height="15" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 4h-1V2h-2v2H8V2H6v2H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V6a2 2 0 00-2-2zm0 16H5V10h14v10z" fill="currentColor"/></svg>'};
+function vpDays(ds){return ds.map(function(d){return d.toLowerCase()}).join(' , ');}
+function vpCard(c){return '<div class="vpx"><div class="t"><span class="id">'+VPCI.lines+c.id+'</span><b>'+esc(c.route)+'</b></div>'+
+  '<div class="m"><span><i>Time Span: </i>'+c.ts+'</span><span>'+(c.days||'')+'</span></div>'+
+  (c.note?'<div class="nt">'+esc(c.note)+'</div>':'')+
+  '<div class="f"><span>'+VPCI.cal+'<i>Exp: </i>'+c.exp+'</span>'+(c.pend?'<span class="pl pd">Pending</span>':'<button class="pl" data-act="vpout" data-v="'+c.id+'">Outlets</button>')+'</div></div>';}
+/* Outlets popup: the plan's outlets as grey chips (copied from the app, 2026-11-15) */
+var VPOP=['Emran Store','Nurjahan store','subah stationary','Tuba store','habib auto','FDL shop','Kobir store ws','Tayeba store','HAJI GENERAL','Toimur Pharma','Jaman pharma','Labib pharma','Beximco office','syntax','Akib super Store','Dr Farazi','Fayez সুপার সপ','লাবিবা স্টোর','Labiba store','Bismillah General','Afpl Head Office','Bismillah store','50m test','Rahman Traders','Nabil Mart','Shapla Store','Mayer Doa Store','Bhai Bhai Store'];
+function vpOutlets(id){var n=8+(id*7)%13,k=(id*5)%VPOP.length,o=[];for(var i=0;i<n;i++)o.push(VPOP[(k+i*3)%VPOP.length]);return o.filter(function(x,i){return o.indexOf(x)===i});}
+function vpOutPop(){return '<div class="ov vpov" data-act="closepop"></div><div class="vpop" role="dialog" aria-labelledby="vpoph"><h3 id="vpoph">Outlets</h3><div class="ch">'+vpOutlets(S.vpOut).map(function(x){return '<span>'+esc(x)+'</span>'}).join('')+'</div></div>';}
+V.vplan=function(){var P=vpS(),act=P.tab==='active',cards;
+  if(act){cards=AOR.filter(function(r){return vpDaysOf(VPW,r).length}).map(function(r){return {id:VPID[r]||300,route:r,ts:'weekly',days:vpDays(vpDaysOf(VPW,r)),exp:'2026-12-31'}})
+     .concat(VPTOUR.map(function(t){return {id:t.id,route:t.route,ts:'tour',days:'',exp:t.date}}));}
+  else cards=S.vpProp.slice().reverse();
+  return sb(true)+'<div class="view vpv"><div class="ab"><button class="ibx" data-act="go" data-v="home" aria-label="Back">'+I.back+'</button><h2 class="vph2">Visit Plan</h2><span style="width:58px"></span></div>'+
+   '<div class="vpt2" role="tablist">'+[['active','Active'],['proposed','Proposed']].map(function(t){return '<button role="tab" aria-selected="'+(P.tab===t[0])+'" class="'+(P.tab===t[0]?'on':'')+'" data-act="vptab" data-v="'+t[0]+'">'+t[1]+'</button>'}).join('')+'</div>'+
+   '<div class="scroll"><div class="vpxl">'+(cards.length?cards.map(vpCard).join(''):'<div class="vpe">No proposed visit plan</div>')+'</div></div>'+
+   '<button class="vpxf" data-act="vpadd">'+I.plus+'Add visit plan</button>'+(S.pop==='vpout'?vpOutPop():'')+'</div>';
+};
+
+V.addvp=function(){var P=vpS(),ok=P.ts==='tour'?!!(P.date&&P.routes.length):P.ts==='weekly'?vpChanged(P):false;
+  var h=sb(true)+'<div class="view m3"><div class="ab vpab"><button class="ibx" data-act="vpback" aria-label="Back">'+I.back+'</button><h2>Add Visit Plan</h2><span style="width:58px"></span></div><div class="scroll"><div class="vpf">';
+  h+='<label class="vpl1" for="vpts">Select Timespan</label><div class="vpi sel"><select id="vpts" data-vp="ts" aria-label="Select Timespan"><option value=""'+(P.ts?'':' selected')+' disabled>Select Timespan</option><option value="weekly"'+(P.ts==='weekly'?' selected':'')+'>Weekly</option><option value="tour"'+(P.ts==='tour'?' selected':'')+'>Tour</option></select>'+VPIC.drop+'</div>';
+  if(P.ts==='tour'){
+    h+='<label class="vpl1" for="vpdate">Select Date</label><div class="vpi"><input id="vpdate" type="date" data-vp="date" value="'+P.date+'" min="2026-11-15" aria-label="Select Date"><span class="ph">'+(P.date?vpFmtDate(P.date):'Select Date')+'</span>'+VPIC.cal+'</div>'+
+       '<span class="vpl1">Select Route Names</span><button class="vpi btn" data-act="vproutes">'+(P.routes.length?'<span class="vch">'+P.routes.map(function(r){return '<span>'+esc(r)+'</span>'}).join('')+'</span>':'<span class="ph">Selected Routes</span>')+VPIC.drop+'</button>'+(P.date?vpDayBox(P):'');
+  }
+  if(P.ts==='weekly'){
+    h+='<span class="vpl1">Select Days</span><div class="vpdays" role="group" aria-label="Days">'+VPD.map(function(d){var on=P.days.indexOf(d)>-1;return '<button class="'+(on?'on':'')+'" aria-pressed="'+on+'" data-act="vpday" data-v="'+d+'">'+d+'</button>'}).join('')+'</div>';
+    if(!P.days.length)h+='<p class="vphint">Pick one or more days to see and change their routes.</p>';
+    VPD.filter(function(d){return P.days.indexOf(d)>-1}).forEach(function(d){var cur=P.w[d],old=VPW[d];
+      h+='<div class="vpdc"><div class="vpdh"><b>'+VPF[d]+'</b><span>'+(cur.length?cur.length+' route'+(cur.length>1?'s':''):'No route')+'</span></div>';
+      cur.forEach(function(r){var nw=old.indexOf(r)<0;h+='<div class="vpr'+(nw?' nw':'')+'"><span class="n">'+esc(r)+(nw?'<small>New</small>':'')+'</span><button class="sw" data-act="vpswap" data-d="'+d+'" data-r="'+esc(r)+'" aria-label="Swap or add a route for '+VPF[d]+' instead of '+esc(r)+'">'+VPIC.swap+'</button></div>';});
+      old.filter(function(r){return cur.indexOf(r)<0}).forEach(function(r){h+='<div class="vpr gone"><span class="n">'+esc(r)+'<small>Removed</small></span></div>';});
+      if(!cur.length)h+='<div class="vpr empty"><span class="n">Off day — no route</span><button class="sw" data-act="vpswap" data-d="'+d+'" data-r="" aria-label="Add a route to '+VPF[d]+'">'+VPIC.swap+'</button></div>';
+      h+='</div>';});
+    if(vpChanged(P))h+='<div class="vpchg"><b>Changes</b>'+vpDiff(P.w).map(function(x){return '<span>'+esc(x)+'</span>'}).join('')+'<button data-act="vpreset">Reset changes</button></div>';
+  }
+  h+='<button class="vpgo'+(ok?'':' off')+'" data-act="vpsubmit"'+(ok?'':' aria-disabled="true"')+'>Add</button></div></div>';
+  if(S.pop==='vppick')h+=vpPick();
+  if(S.pop==='vpact')h+=vpAct();
+  if(S.pop==='vproutes')h+=vpRoutes();
+  return h+'</div>';
+};
+/* Tour: what that date already has (weekly plan of that weekday, other tours, pending tours) + what this plan adds */
+function vpDayBox(P){var p=P.date.split('-'),dt=new Date(+p[0],+p[1]-1,+p[2]),wd=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'][dt.getDay()],have=[];
+  (VPW[wd]||[]).forEach(function(r){have.push([r,'Weekly'])});
+  VPTOUR.forEach(function(t){if(t.date===P.date)have.push([t.route,'Tour'])});
+  (S.vpProp||[]).forEach(function(c){if(c.ts==='tour'&&c.exp===P.date)have.push([c.route,'Tour · pending'])});
+  var names=have.map(function(x){return x[0]}),adds=P.routes.filter(function(r){return names.indexOf(r)<0}),dup=P.routes.filter(function(r){return names.indexOf(r)>-1});
+  var total=names.filter(function(x,i){return names.indexOf(x)===i}).length+adds.length;
+  var h='<div class="vpday"><div class="hd"><b>'+VPF[wd]+', '+vpFmtDate(P.date)+'</b><span>'+total+' route'+(total===1?'':'s')+' that day</span></div>';
+  h+='<div class="sec">Already planned</div>'+(have.length?have.map(function(x){var d=dup.indexOf(x[0])>-1;return '<div class="rw'+(d?' dup':'')+'"><span>'+esc(x[0])+'</span><em class="'+(x[1]==='Weekly'?'wk':'tr')+'">'+x[1]+'</em></div>'}).join(''):'<div class="rw none"><span>Nothing — off day</span></div>');
+  if(P.routes.length){h+='<div class="sec">This tour adds</div>'+adds.map(function(r){return '<div class="rw nw"><span>'+esc(r)+'</span><em class="nw">New</em></div>'}).join('')+
+    dup.map(function(r){return '<div class="rw warn"><span>'+esc(r)+'</span><em class="wa">Already that day</em></div>'}).join('');}
+  else h+='<div class="sec">This tour adds</div><div class="rw none"><span>Select route names above</span></div>';
+  return h+'</div>';
+}
+/* swap button -> every route of the SR, with the day(s) it is on now */
+function vpPick(){var P=vpS(),q=P.q.trim().toLowerCase(),rows=[];
+  AOR.forEach(function(r){if(q&&r.toLowerCase().indexOf(q)<0)return;var ds=vpDaysOf(P.w,r);
+    if(!ds.length)rows.push([r,null]);ds.forEach(function(d){if(!(d===P.src.d&&r===P.src.r))rows.push([r,d])});});
+  rows.sort(function(a,b){return (a[1]?VPD.indexOf(a[1]):9)-(b[1]?VPD.indexOf(b[1]):9)});
+  return '<div class="ov" data-act="closepop"></div><div class="vpsh" role="dialog" aria-label="Select a Route"><div class="g"></div><h3>Select a Route</h3>'+
+   '<p class="s">'+(P.src.r?'For <b>'+VPF[P.src.d]+'</b> · now <b>'+esc(P.src.r)+'</b>':'For <b>'+VPF[P.src.d]+'</b> · off day')+'</p>'+
+   '<div class="vps">'+I.search+'<input id="vpq" data-vp="q" value="'+esc(P.q)+'" placeholder="Search Route" aria-label="Search Route"></div><div class="vpls">'+
+   (rows.length?rows.map(function(x){return '<button data-act="vppicked" data-r="'+esc(x[0])+'" data-d="'+(x[1]||'')+'"><b>'+esc(x[0])+'</b><span class="'+(x[1]?'':'no')+'">'+(x[1]?VPF[x[1]]:'Not in plan')+'</span></button>'}).join(''):'<p class="vpe">No route found</p>')+'</div></div>';
+}
+/* Swap Route or Add Route */
+function vpAct(){var P=vpS(),s=P.src,t=P.tgt,sd=VPF[s.d],td=t.d?VPF[t.d]:null,swapTxt,addTxt;
+  if(s.r&&t.d)swapTxt=sd+' gets <b>'+esc(t.r)+'</b>, '+td+' gets <b>'+esc(s.r)+'</b>';
+  else if(s.r)swapTxt=sd+' gets <b>'+esc(t.r)+'</b> instead of <b>'+esc(s.r)+'</b>';
+  else swapTxt='<b>'+esc(t.r)+'</b> moves from '+td+' to '+sd;
+  addTxt=sd+': <b>'+(s.r?esc(s.r)+' + ':'')+esc(t.r)+'</b>'+(td?' · '+td+' keeps <b>'+esc(t.r)+'</b>':'');
+  return '<div class="ov" data-act="closepop"></div><div class="vpa" role="dialog" aria-labelledby="vpah"><h3 id="vpah">'+(s.r?esc(s.r):'Off day')+' <small>'+s.d+'</small> '+VPIC.swap+' '+esc(t.r)+' <small>'+(t.d||'—')+'</small></h3>'+
+   '<button class="o" data-act="vpdo" data-v="swap"><b>Swap Route</b><span>'+swapTxt+'</span></button>'+
+   '<button class="o" data-act="vpdo" data-v="add"><b>Add Route</b><span>'+addTxt+'</span></button>'+
+   '<button class="c" data-act="closepop">Cancel</button></div>';
+}
+/* tour: pick the route(s) */
+function vpRoutes(){var P=vpS(),q=P.q.trim().toLowerCase();
+  return '<div class="ov" data-act="closepop"></div><div class="vpsh" role="dialog" aria-label="Select Routes"><div class="g"></div><h3>Select Routes</h3>'+
+   '<div class="vps">'+I.search+'<input id="vpq" data-vp="q" value="'+esc(P.q)+'" placeholder="Search Route" aria-label="Search Route"></div><div class="vpls">'+
+   AOR.filter(function(r){return !q||r.toLowerCase().indexOf(q)>-1}).map(function(r){var on=P.routes.indexOf(r)>-1;return '<button class="ck'+(on?' on':'')+'" aria-pressed="'+on+'" data-act="vprt" data-r="'+esc(r)+'"><i>'+(on?VPIC.chk:'')+'</i><b>'+esc(r)+'</b></button>'}).join('')+
+   '</div><button class="vpgo sm" data-act="closepop">Done ('+P.routes.length+')</button></div>';
+}
+
 V.history=function(){
   return sb(true)+'<div class="view m3"><div class="ab"><button class="ibx" data-act="go" data-v="outlets" aria-label="Back">'+I.backarr+'</button><h2>Order History</h2><button class="ibx" data-act="nyi" aria-label="Sort" style="color:#424242">'+I.sort+'</button></div>'+
    '<div class="chipr">'+['Purchase History','Pending','Accepted','ReadyToDispatch','Delivered'].map(function(t,i){return '<button class="'+(S.htab===i?'on':'')+'" data-act="htab" data-v="'+i+'">'+t+'</button>'}).join('')+'</div>'+
@@ -1433,6 +1670,31 @@ var A={
  nyi:function(){toast('Not part of the screenshots')},
  terr:function(e){S.terr[e.dataset.v]=!S.terr[e.dataset.v];render(true)},
  closepop:function(){S.pop=null;render(true)},
+ vpout:function(e){S.vpOut=+e.dataset.v;S.pop='vpout';render(true)},
+ vptab:function(e){vpS().tab=e.dataset.v;render(true)},
+ vpadd:function(){var P=vpS(),t=P.tab;S.vp=vpFresh();S.vp.tab=t;go('addvp')},
+ vpback:function(){go('vplan')},
+ vpday:function(e){var P=vpS(),d=e.dataset.v,i=P.days.indexOf(d);if(i>-1)P.days.splice(i,1);else P.days.push(d);render(true)},
+ vpswap:function(e){var P=vpS();P.src={d:e.dataset.d,r:e.dataset.r||null};P.q='';S.pop='vppick';render(true)},
+ vppicked:function(e){var P=vpS();P.tgt={r:e.dataset.r,d:e.dataset.d||null};S.pop='vpact';render(true)},
+ vpdo:function(e){var P=vpS(),w=P.w,s=P.src,t=P.tgt,swap=e.dataset.v==='swap',uniq=function(a){return a.filter(function(x,i){return a.indexOf(x)===i})};
+   if(swap){
+     if(s.r&&t.d){w[s.d]=uniq(w[s.d].map(function(x){return x===s.r?t.r:x}));w[t.d]=uniq(w[t.d].map(function(x){return x===t.r?s.r:x}))}
+     else if(s.r){w[s.d]=uniq(w[s.d].map(function(x){return x===s.r?t.r:x}))}
+     else{w[s.d]=uniq(w[s.d].concat([t.r]));if(t.d)w[t.d]=w[t.d].filter(function(x){return x!==t.r})}
+     if(t.d&&P.days.indexOf(t.d)<0)P.days.push(t.d);   /* show the other changed day too */
+   }else w[s.d]=uniq(w[s.d].concat([t.r]));
+   S.pop=null;render(true);toast(swap?'Route swapped':'Route added')},
+ vpreset:function(){var P=vpS();P.w=vpCopy(VPW);render(true)},
+ vproutes:function(){var P=vpS();P.q='';S.pop='vproutes';render(true)},
+ vprt:function(e){var P=vpS(),r=e.dataset.r,i=P.routes.indexOf(r);if(i>-1)P.routes.splice(i,1);else P.routes.push(r);render(true)},
+ vpsubmit:function(){var P=vpS(),t=new Date(),ymd=function(x){return x.getFullYear()+'-'+String(x.getMonth()+1).padStart(2,'0')+'-'+String(x.getDate()).padStart(2,'0')},nid=900+S.vpProp.length*7;
+   if(!P.ts){toast('Please select a timespan');return}
+   if(P.ts==='tour'){if(!P.date){toast('Please select a date');return}if(!P.routes.length){toast('Please select at least one route');return}
+     P.routes.forEach(function(r,k){S.vpProp.push({id:nid+k,route:r,ts:'tour',days:'',exp:P.date,pend:1})})}
+   else{if(!vpChanged(P)){toast('No change in the weekly plan');return}
+     AOR.forEach(function(r,k){var a=vpDaysOf(VPW,r),b=vpDaysOf(P.w,r);if(a.join()!==b.join())S.vpProp.push({id:nid+k,route:r,ts:'weekly',days:b.length?vpDays(b):'—',note:'Now: '+(a.length?vpDays(a):'not in plan'),exp:ymd(new Date(t.getFullYear(),11,31)),pend:1})})}
+   S.vp=vpFresh();S.vp.tab='proposed';go('vplan');toast('Visit plan sent for approval')},
  proceed:function(){S.pop=null;render()},
  skipday:function(){S.dayIn=false;go('home')},
  daytile:function(){if(S.dayIn){S.pop='dayout';render(true)}else{clearT();S.v='dayin';S.pop='hello';render()}},
@@ -1511,11 +1773,12 @@ scr.addEventListener('click',function(ev){var el=ev.target.closest('[data-act]')
   if(S.v==='addout'&&S.ao.menu&&!ev.target.closest('.afm')&&!(el&&el.dataset.act==='aomenu')){S.ao.menu=null;render(true);return}
   if(!el||!scr.contains(el))return;var f=A[el.dataset.act];if(f)f(el)});
 scr.addEventListener('scroll',function(ev){var t=ev.target;if(t.id==='pdfs'){var pg=t.querySelectorAll('.pg'),n=1;pg.forEach(function(x,i){if(x.offsetTop-t.scrollTop<t.clientHeight/2)n=i+1});var el=$('#pgno');if(el)el.textContent=n+' / '+pg.length}},true);
-scr.addEventListener('change',function(ev){var t=ev.target;if(t.dataset&&t.dataset.sku){S.skuBy=t.value;render(true);return}if(t.dataset&&t.dataset.lb&&S.lb.t)S.lb.t[t.dataset.lb]=t.value});
+scr.addEventListener('change',function(ev){var t=ev.target;if(t.dataset&&t.dataset.vp&&t.dataset.vp!=='q'){var P=vpS();P[t.dataset.vp]=t.value;render(true);return}if(t.dataset&&t.dataset.sku){S.skuBy=t.value;render(true);return}if(t.dataset&&t.dataset.lb&&S.lb.t)S.lb.t[t.dataset.lb]=t.value});
 /* Dashboard Setup saved in another tab: show the new header list */
 window.addEventListener('storage',function(e){if(e.key==='kpi-setup-policies'&&S.v==='dash')render(true)});
 scr.addEventListener('input',function(ev){var t=ev.target;
   if(t.dataset&&t.dataset.ao){var k=t.dataset.ao;S.ao.v[k]=t.value;if(S.ao.err[k]&&t.value.trim()){delete S.ao.err[k];var p0=t.selectionStart;render(true);var m0=$('#ao_'+k);if(m0){m0.focus();m0.setSelectionRange(p0,p0)}}else if(k==='rt'){S.ao.menu='rt';var p1=t.selectionStart;render(true);var m1=$('#ao_rt');m1.focus();m1.setSelectionRange(p1,p1)}return}
+  if(t.id==='vpq'){vpS().q=t.value;var pq=t.selectionStart;render(true);var nq=$('#vpq');nq.focus();nq.setSelectionRange(pq,pq);return}
   if(t.id==='q'){S.q=t.value;var p=t.selectionStart;render(true);var n=$('#q');n.focus();n.setSelectionRange(p,p)}
   else if(t.dataset.qi!=null){S.qty[t.dataset.qi]=parseInt(t.value.replace(/\D/g,'')||'0',10);var id=t.id;render(true);var m=$('#'+id);m.focus();var L=m.value.length;m.setSelectionRange(L,L)}});
 function wireSlide(){var sl=$('#slide');if(!sl)return;var k=sl.querySelector('.kn'),d=null;
@@ -1526,7 +1789,7 @@ function wireSlide(){var sl=$('#slide');if(!sl)return;var k=sl.querySelector('.k
 setInterval(function(){var c=$('#clock');if(c&&S.v==='dayin'){var t=dayinBody().match(/id="clock">([^<]*)/);if(t)c.textContent=t[1]}},20000);
 
 /* step buttons above the phone */
-var STEPS=[['login','Login'],['sync','Synchronizing'],['dayin','Day In'],['home','Home'],['outlets','My Outlets'],['history','Order History'],['last3','Last 3 Orders'],['order','Order (New)']];
+var STEPS=[['login','Login'],['sync','Synchronizing'],['dayin','Day In'],['home','Home'],['outlets','My Outlets'],['history','Order History'],['last3','Last 3 Orders'],['order','Order (New)'],['vplan','Visit Plan']];
 function renderFlow(){if(!$('#flow'))return;var cur=S.v==='outlets'&&S.pop==='last3'?'last3':S.v;$('#flow').innerHTML=STEPS.map(function(s,i){return '<button class="'+(s[0]===cur?'on':'')+'" data-step="'+s[0]+'">'+(i+1)+'. '+s[1]+'</button>'}).join('')}
 if($('#flow'))$('#flow').addEventListener('click',function(ev){var b=ev.target.closest('[data-step]');if(!b)return;var v=b.dataset.step;clearT();
   if(v==='last3'){S.v='outlets';S.checked=0;S.pop='last3';render();return}
